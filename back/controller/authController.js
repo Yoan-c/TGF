@@ -2,6 +2,7 @@ const User = require("../model/userModel");
 const catchAsync = require("../utils/catchAsync");
 const AppError = require("../utils/appError");
 const jwt = require("jsonwebtoken");
+const { promisify } = require("util");
 
 const signToken = (id) => {
   const token = jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -53,4 +54,24 @@ exports.login = catchAsync(async (req, res, next) => {
     return next(new AppError("email ou mot de passe incorrect", 401));
   }
   createSendToken(user, 200, req, res);
+});
+
+exports.protect = catchAsync(async (req, res, next) => {
+  const token = req.cookies.jwt;
+
+  if (!token) {
+    return next(
+      new AppError("You are not looged in! Please log in to get access.", 401)
+    );
+  }
+  const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+  const freshUser = await User.findById(decoded.id);
+  if (!freshUser)
+    return next(
+      new AppError("The user to this token does no longer exist", 401)
+    );
+
+  req.user = freshUser;
+  res.locals.user = freshUser;
+  next();
 });

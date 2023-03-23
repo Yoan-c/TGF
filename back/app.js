@@ -1,10 +1,12 @@
 const express = require("express");
+const cookieParser = require("cookie-parser");
 const userRoute = require("./route/userRoute");
 const globalErrorHandler = require("./controller/errorController");
 
 const app = express();
 
 app.use(express.json());
+app.use(cookieParser());
 app.use("/user", userRoute);
 app.use("/", (req, res, next) => {
   res.status(200).json({
