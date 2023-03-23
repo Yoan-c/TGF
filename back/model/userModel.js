@@ -68,5 +68,10 @@ userSchema.methods.correctPassword = async function (userPassword, password) {
   return await bcrypt.compare(password, userPassword);
 };
 
+userSchema.methods.modifPassword = async function (password) {
+  password = await bcrypt.hash(password, 12);
+  return password;
+};
+
 const User = mongoose.model("User", userSchema);
 module.exports = User;
