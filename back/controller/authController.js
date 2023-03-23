@@ -75,3 +75,13 @@ exports.protect = catchAsync(async (req, res, next) => {
   res.locals.user = freshUser;
   next();
 });
+
+exports.logout = (req, res, next) => {
+  res.cookie("jwt", "", {
+    expiresIn: Date.now() - 1,
+  });
+  res.status(200).json({
+    status: "success",
+    message: "disconnected",
+  });
+};
