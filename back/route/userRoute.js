@@ -10,5 +10,6 @@ router.get("/logout", authController.logout);
 router.use(authController.protect);
 router.patch("/updatePassword", userController.updatePassword);
 router.get("/", userController.getAllUser);
+router.patch("/:id", userController.updateUser);
 
 module.exports = router;
