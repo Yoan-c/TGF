@@ -42,7 +42,7 @@ const userSchema = new mongoose.Schema({
   },
   compteCreated: {
     type: Date,
-    default: Date,
+    default: Date.now(),
   },
   tabQuestion: {
     type: [String],
