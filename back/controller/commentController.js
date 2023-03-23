@@ -54,3 +54,22 @@ exports.getOneComments = catchAsync(async (req, res, next) => {
     comment,
   });
 });
+
+exports.UpdateComments = catchAsync(async (req, res, next) => {
+  const id = req.params.id;
+  const { comments } = req.body;
+  if (!id) return next(new AppError("Une erreur est survenu", 400));
+  if (!comments)
+    return next(new AppError("Ajouter un commentaire à modifier", 400));
+  let oldComment = await Comment.findById(id);
+  const idQuestion = oldComment.question;
+  oldComment.comments = comments;
+  oldComment.updateComments = Date.now();
+  const newComment = await oldComment.save();
+  await Question.findByIdAndUpdate(idQuestion, { updateQuestion: Date.now() });
+
+  res.status(200).json({
+    status: "success",
+    comment: newComment,
+  });
+});
