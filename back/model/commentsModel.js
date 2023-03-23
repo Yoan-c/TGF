@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const commentsSchema = mongoose.createSchema({
+const commentsSchema = mongoose.Schema({
   creationComments: {
     type: Date,
     default: Date.now(),

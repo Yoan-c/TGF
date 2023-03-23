@@ -85,3 +85,11 @@ exports.logout = (req, res, next) => {
     message: "disconnected",
   });
 };
+
+exports.restrictTo = (...role) => {
+  return (req, res, next) => {
+    if (!role.includes(req.user.role))
+      return next(new AppError("Vous n'avez pas la persmission", 403));
+    next();
+  };
+};

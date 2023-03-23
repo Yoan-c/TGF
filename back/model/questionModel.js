@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
 
-const questionSchema = mongoose.createSchema({
+const questionSchema = new mongoose.Schema({
   question: {
     type: String,
     required: [true, "Une question est requise"],
+    unique: true,
   },
   description: {
     type: String,
@@ -21,6 +22,7 @@ const questionSchema = mongoose.createSchema({
   comments: {
     type: mongoose.Schema.ObjectId,
     ref: "Comments",
+    default: null,
   },
   updateQuestion: {
     type: Date,
@@ -32,6 +34,13 @@ const questionSchema = mongoose.createSchema({
   },
 });
 
-const Question = mongoose.model("Comments", questionSchema);
+questionSchema.pre(/^find/, function (next) {
+  this.populate("user").populate({
+    path: "user",
+    select: ["email", "username", "photo"],
+  });
+  next();
+});
+const Question = mongoose.model("Question", questionSchema);
 
 module.exports = Question;
