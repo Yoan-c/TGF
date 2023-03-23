@@ -4,8 +4,10 @@ const authController = require("../controller/authController");
 
 const router = express.Router();
 
-router.route("/:id/comments").get(commentController.getComments);
 router.use(authController.protect);
-router.route("/:id/comments").post(commentController.addComments);
+router
+  .route("/:id")
+  .get(commentController.getOneComments)
+  .delete(commentController.deleteComments);
 
 module.exports = router;

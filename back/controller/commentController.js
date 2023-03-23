@@ -35,3 +35,22 @@ exports.addComments = catchAsync(async (req, res, next) => {
     comment,
   });
 });
+
+exports.deleteComments = catchAsync(async (req, res, next) => {
+  const id = req.params.id;
+  if (!id) return next(new AppError("Une erreur est survenu", 400));
+  let comment = await Comment.findByIdAndDelete(id);
+  res.status(200).json({
+    status: "success",
+  });
+});
+
+exports.getOneComments = catchAsync(async (req, res, next) => {
+  const id = req.params.id;
+  if (!id) return next(new AppError("Une erreur est survenu", 400));
+  let comment = await Comment.findById(id);
+  res.status(200).json({
+    status: "success",
+    comment,
+  });
+});
