@@ -37,7 +37,7 @@ exports.getQuestion = catchAsync(async (req, res, next) => {
   let question = await Question.findById(id);
   if (!question)
     return next(new AppError("Aucune question trouvé sur le forum", 400));
-  console.log(question);
+
   res.status(200).json({
     status: "success",
     question,

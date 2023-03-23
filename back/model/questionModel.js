@@ -19,11 +19,13 @@ const questionSchema = new mongoose.Schema({
     ref: "User",
     required: [true, "Une question est posé par un utilisateur"],
   },
-  comments: {
-    type: mongoose.Schema.ObjectId,
-    ref: "Comments",
-    default: null,
-  },
+  comments: [
+    {
+      type: [mongoose.Schema.ObjectId],
+      ref: "Comments",
+      default: "",
+    },
+  ],
   updateQuestion: {
     type: Date,
     default: Date.now(),

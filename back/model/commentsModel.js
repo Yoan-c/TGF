@@ -10,6 +10,11 @@ const commentsSchema = mongoose.Schema({
     ref: "User",
     required: [true, "Une question est posé par un utilisateur"],
   },
+  question: {
+    type: mongoose.Schema.ObjectId,
+    ref: "question",
+    required: [true, "Un commentaire concerne une question"],
+  },
   comments: {
     type: String,
   },

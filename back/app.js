@@ -2,6 +2,7 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const userRoute = require("./route/userRoute");
 const questionRoute = require("./route/questionRoute");
+const commentsRoute = require("./route/commentRoute");
 const globalErrorHandler = require("./controller/errorController");
 
 const app = express();
@@ -9,6 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use("/user", userRoute);
+app.use("/questions", commentsRoute);
 app.use("/questions", questionRoute);
 app.use("/", (req, res, next) => {
   res.status(200).json({
