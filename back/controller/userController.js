@@ -50,7 +50,7 @@ exports.resizeUserPhoto = catchAsync(async (req, res, next) => {
 
   req.file.filename = `user-${req.user.id}-${Date.now()}.jpeg`;
   req.updatePhoto = true;
-  req.oldPhotoName = req.user.photo == "default.jpeg" ? "" : req.user.photo;
+  req.oldPhotoName = req.user.photo == "default.png" ? "" : req.user.photo;
   req.user.photo = req.file.filename;
 
   // ici on lit le fichier dans le buffer et on fait plein de traitement dessus pour ensuite le save en jpeg
