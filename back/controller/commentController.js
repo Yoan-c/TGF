@@ -23,13 +23,17 @@ exports.addComments = catchAsync(async (req, res, next) => {
   let question = await Question.findById(id);
   if (!question)
     return next(new AppError("Aucune question trouvé sur le forum", 400));
-  question.updateQuestion = Date.now();
-  question.save();
+  const date = Date.now();
   const comment = await Comment.create({
     user: req.user.id,
     question: question.id,
     comments,
+    updateComments: date,
+    creationComments: date,
   });
+  question.updateQuestion = date;
+  question.comments.push(comment.id);
+  question.save();
   res.status(200).json({
     status: "success",
     comment,

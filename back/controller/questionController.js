@@ -34,7 +34,7 @@ exports.createQuestion = catchAsync(async (req, res, next) => {
 exports.getQuestion = catchAsync(async (req, res, next) => {
   const id = req.params.id;
   if (!id) return next(new AppError("Une erreur est survenue ", 400));
-  let question = await Question.findById(id);
+  let question = await Question.findById(id).populate("comments");
   if (!question)
     return next(new AppError("Aucune question trouvé sur le forum", 400));
 

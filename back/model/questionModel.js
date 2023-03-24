@@ -21,7 +21,7 @@ const questionSchema = new mongoose.Schema({
   },
   comments: [
     {
-      type: [mongoose.Schema.ObjectId],
+      type: mongoose.Schema.ObjectId,
       ref: "Comments",
       default: "",
     },
@@ -43,6 +43,7 @@ questionSchema.pre(/^find/, function (next) {
   });
   next();
 });
+
 const Question = mongoose.model("Question", questionSchema);
 
 module.exports = Question;
