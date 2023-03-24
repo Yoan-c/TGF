@@ -53,6 +53,8 @@ exports.login = catchAsync(async (req, res, next) => {
   if (!user || !(await user.correctPassword(user.password, password))) {
     return next(new AppError("email ou mot de passe incorrect", 401));
   }
+
+  req.user = user;
   createSendToken(user, 200, req, res);
 });
 
@@ -72,6 +74,8 @@ exports.protect = catchAsync(async (req, res, next) => {
     );
 
   req.user = freshUser;
+  req.updatePhoto = false;
+  req.oldPhotoName = req.user.photo;
   res.locals.user = freshUser;
   next();
 });
@@ -80,6 +84,7 @@ exports.logout = (req, res, next) => {
   res.cookie("jwt", "", {
     expiresIn: Date.now() - 1,
   });
+  req.user = "";
   res.status(200).json({
     status: "success",
     message: "disconnected",

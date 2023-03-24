@@ -9,6 +9,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 app.use("/user", userRoute);
 app.use("/questions", questionRoute);
 app.use("/comment", commentsRoute);
