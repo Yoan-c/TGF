@@ -67,10 +67,11 @@ exports.UpdateComments = catchAsync(async (req, res, next) => {
     return next(new AppError("Ajouter un commentaire à modifier", 400));
   let oldComment = await Comment.findById(id);
   const idQuestion = oldComment.question;
+  const date = Date.now();
   oldComment.comments = comments;
-  oldComment.updateComments = Date.now();
+  oldComment.updateComments = date;
   const newComment = await oldComment.save();
-  await Question.findByIdAndUpdate(idQuestion, { updateQuestion: Date.now() });
+  await Question.findByIdAndUpdate(idQuestion, { updateQuestion: date });
 
   res.status(200).json({
     status: "success",
