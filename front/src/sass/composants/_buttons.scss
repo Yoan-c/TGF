@@ -1,0 +1,18 @@
+.button {
+    border: none;
+    padding: 1rem;
+    border-radius: 2rem;
+    text-align: center;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: 200;
+    min-width: 5rem;
+
+    &--blue {
+        background-color: $color-primary-blue;
+    }
+
+    &--orange {
+        background-color: $color-primary-orange;
+    }
+}

@@ -1,0 +1,15 @@
+.header {
+    background-color: $color-primary-grey;
+    font-size: 1.2rem;
+    height: 7rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem;
+
+    &__logo {
+        color: $color-primary-orange;
+        display: inline-block;
+
+    }
+}
