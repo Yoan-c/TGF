@@ -1,0 +1,29 @@
+.form {
+    font-size: 1.4rem;
+    width: 65%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+    &__group {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+
+        & input {
+            border: none;
+            border-bottom: 1px solid $color-primary-grey-darker;
+            height: 2rem;
+            margin-top: 1rem;
+        }
+    }
+
+    &__error {
+        font-size: 1.1rem;
+        color: red;
+    }
+}

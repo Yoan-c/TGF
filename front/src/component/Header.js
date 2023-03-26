@@ -6,7 +6,9 @@ const Header = () => {
   return (
     <header className="header">
       <Nav />
-      <h1 className="header__logo">LOGO</h1>
+      <a href="/">
+        <h1 className="header__logo">LOGO</h1>
+      </a>
       <div className="header__search">
         <img
           src="img/search_icon.png"
@@ -14,8 +16,12 @@ const Header = () => {
           alt="rechercher"
         />
       </div>
-      <Button value="login" bgColor="blue" heigth="50" width="50" />
-      <Button value="signup" bgColor="blue" heigth="50" width="50" />
+      <a href="/login">
+        <Button value="login" bgColor="blue" heigth="50" width="50" />
+      </a>
+      <a href="/signup">
+        <Button value="signup" bgColor="blue" heigth="50" width="50" />
+      </a>
     </header>
   );
 };
