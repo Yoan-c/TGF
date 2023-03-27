@@ -51,7 +51,6 @@ const Main = () => {
     else params += "false";
 
     let url = `${process.env.REACT_APP_URL}/questions?${params}`;
-
     axios
       .get(url)
       .then(function (res) {

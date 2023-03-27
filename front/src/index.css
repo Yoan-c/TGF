@@ -32,13 +32,15 @@ body {
     font-size: 1.5rem; }
 
 .filterInfo {
+  display: flex;
   justify-content: space-around;
   background-color: #EFECEC;
-  padding: 1rem;
   border-radius: 10px;
+  padding: 0;
+  max-height: 0;
   opacity: 0;
-  display: none;
-  transition: all 1s; }
+  overflow: hidden;
+  transition: all 0.8s ease-out; }
   .filterInfo__filter p {
     font-weight: bold;
     font-size: 1.2rem;
@@ -69,10 +71,11 @@ body {
 .checkbox {
   display: none; }
 
-.checkbox:checked ~ .filterInfo {
-  display: flex;
+.checkbox:checked + .filterInfo {
+  max-height: 300px;
   opacity: 1;
-  transition: all 1s; }
+  transition: all 0.8s ease-out;
+  padding: 1rem; }
 
 .button {
   border: none;

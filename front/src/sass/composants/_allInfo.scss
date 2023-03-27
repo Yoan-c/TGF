@@ -29,15 +29,16 @@
 }
 
 .filterInfo {
+    display: flex;
     justify-content: space-around;
     background-color: $color-primary-grey;
-    padding: 1rem;
     border-radius: 10px;
     // on cache l'élément
+    padding: 0;
+    max-height: 0; 
     opacity: 0;
-    display: none;
-    transition: all 1s;
-
+    overflow: hidden;
+    transition: all 0.8s ease-out;
     &__filter {
         & p {
             font-weight: bold;
@@ -94,9 +95,10 @@
 }
 
 // quand on active la checkbox on modifie la class filterInfo
-.checkbox:checked~.filterInfo {
-    display: flex;
-    opacity: 1;
-    transition: all 1s;
-
+.checkbox:checked+.filterInfo {
+  max-height: 300px;
+  opacity: 1;
+  transition: all 0.8s ease-out;
+  padding: 1rem;
+  
 }
