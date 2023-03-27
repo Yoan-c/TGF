@@ -27,18 +27,20 @@ const Login = () => {
       valid = false;
     }
     if (valid) {
+      let url = `${process.env.REACT_APP_URL}/user/login`;
       axios
         .post(
-          `${process.env.REACT_APP_URL}/login`,
-
+          url,
           {
             email,
             password,
-          }
+          },
+          { withCredentials: true }
         )
         .then(function (res) {
           // handle success
-          localStorage.setItem("TGFU", res.data.user);
+          console.log(res);
+          localStorage.setItem("TGFU", JSON.stringify(res.data.user));
 
           navigate(`/forum`);
         })

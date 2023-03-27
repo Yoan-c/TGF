@@ -63,8 +63,7 @@ const Main = () => {
   }, [sort, orderBy, asc]);
 
   const handleQuestion = (id) => {
-    let url = `${process.env.REACT_APP_URL}/questions/${id}`;
-    navigate(`/questions/${id}`)
+    navigate(`/questions/${id}`);
   };
 
   return (

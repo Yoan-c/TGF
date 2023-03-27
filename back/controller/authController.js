@@ -18,7 +18,9 @@ const createSendToken = (user, statusCode, req, res) => {
       Date.now() + process.env.JWT_EXPIRES_IN * 24 * 60 * 60 * 1000
     ),
     httpOnly: true,
+    maxAge: 3600 * 1000, // expiration après 1 heure
   };
+
   res.cookie("jwt", token, cookieOptions);
   res.status(200).json({
     status: "success",
@@ -60,7 +62,6 @@ exports.login = catchAsync(async (req, res, next) => {
 
 exports.protect = catchAsync(async (req, res, next) => {
   const token = req.cookies.jwt;
-
   if (!token) {
     return next(
       new AppError("You are not looged in! Please log in to get access.", 401)
@@ -72,7 +73,6 @@ exports.protect = catchAsync(async (req, res, next) => {
     return next(
       new AppError("The user to this token does no longer exist", 401)
     );
-
   req.user = freshUser;
   req.updatePhoto = false;
   req.oldPhotoName = req.user.photo;
