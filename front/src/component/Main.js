@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { format } from "../utils/format";
 import Button from "./Button";
 
@@ -9,6 +10,7 @@ const Main = () => {
   const [sort, setSort] = useState(true);
   const [orderBy, setOrderBy] = useState("creationQuestion");
   const [asc, setAsc] = useState(false);
+  const navigate = useNavigate();
 
   const formatUrl = (value) => {
     switch (value) {
@@ -61,8 +63,8 @@ const Main = () => {
   }, [sort, orderBy, asc]);
 
   const handleQuestion = (id) => {
-    console.log("demande de la question");
-    console.log(id);
+    let url = `${process.env.REACT_APP_URL}/questions/${id}`;
+    navigate(`/questions/${id}`)
   };
 
   return (

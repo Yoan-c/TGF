@@ -4,6 +4,7 @@ import Signup from "./component/auth/Signup";
 import Header from "./component/Header";
 import Home from "./component/Home";
 import Main from "./component/Main";
+import Questions from "./component/Questions";
 
 function App() {
   return (
@@ -13,8 +14,9 @@ function App() {
         <Routes>
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Home />} />
           <Route path="/forum" element={<Main />} />
+          <Route path="/questions/:id" element={<Questions />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </BrowserRouter>
     </>

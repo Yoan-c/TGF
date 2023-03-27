@@ -38,7 +38,7 @@
     max-height: 0; 
     opacity: 0;
     overflow: hidden;
-    transition: all 0.8s ease-out;
+    transition: all 0.2s ease-out;
     &__filter {
         & p {
             font-weight: bold;
@@ -98,7 +98,7 @@
 .checkbox:checked+.filterInfo {
   max-height: 300px;
   opacity: 1;
-  transition: all 0.8s ease-out;
+  transition: all 0.2s ease-out;
   padding: 1rem;
   
 }
