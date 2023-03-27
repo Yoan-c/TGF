@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import Button from "../Button";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,13 +27,31 @@ const Login = () => {
       valid = false;
     }
     if (valid) {
-      console.log("Envoi formulaire login avec axios");
+      axios
+        .post(
+          `${process.env.REACT_APP_URL}/login`,
+
+          {
+            email,
+            password,
+          }
+        )
+        .then(function (res) {
+          // handle success
+          localStorage.setItem("TGFU", res.data.user);
+
+          navigate(`/forum`);
+        })
+        .catch(function (error) {
+          // handle error
+          setError(error.response.data.message);
+        });
     }
   };
 
   return (
     <main className="main">
-      <form action="/" method="post" className="form">
+      <form action="/" method="post" className="form form--login">
         <div className="form__error">
           <p className="form__error__text">{error}</p>
         </div>

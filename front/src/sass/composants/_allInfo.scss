@@ -1,0 +1,87 @@
+.allInfo {
+    padding: 2rem;
+
+    &__filterBtn {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 2rem;
+        ;
+    }
+
+}
+
+.allInfoQuestion {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 2rem;
+
+    &__text {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+    }
+
+    &__nb {
+        position: relative;
+        left: 20px;
+        font-size: 1.5rem;
+    }
+}
+
+.filterInfo {
+    display: flex;
+    justify-content: space-around;
+    background-color: $color-primary-grey;
+    padding: 1rem;
+    border-radius: 10px;
+
+    &__filter {
+        & p {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        & ul {
+            list-style: none;
+        }
+
+        & ul li:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+
+        & ul li>input {
+            margin-right: 5px;
+        }
+
+        & ul li>label {
+            position: relative;
+            top: -3px;
+        }
+    }
+
+    &__order {
+        & p {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        & ul {
+            list-style: none;
+        }
+
+        & ul li:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+
+        & ul li>input {
+            margin-right: 5px;
+        }
+
+        & ul li>label {
+            position: relative;
+            top: -3px;
+        }
+    }
+}

@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const userRoute = require("./route/userRoute");
 const questionRoute = require("./route/questionRoute");
@@ -9,6 +10,11 @@ const app = express();
 
 app.use(express.json());
 app.use(cookieParser());
+const corsOptions = {
+  credentials: true,
+  origin: true,
+};
+app.use(cors());
 app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 app.use("/user", userRoute);
 app.use("/questions", questionRoute);
