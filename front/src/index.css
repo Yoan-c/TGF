@@ -32,11 +32,13 @@ body {
     font-size: 1.5rem; }
 
 .filterInfo {
-  display: flex;
   justify-content: space-around;
   background-color: #EFECEC;
   padding: 1rem;
-  border-radius: 10px; }
+  border-radius: 10px;
+  opacity: 0;
+  display: none;
+  transition: all 1s; }
   .filterInfo__filter p {
     font-weight: bold;
     font-size: 1.2rem;
@@ -63,6 +65,14 @@ body {
   .filterInfo__order ul li > label {
     position: relative;
     top: -3px; }
+
+.checkbox {
+  display: none; }
+
+.checkbox:checked ~ .filterInfo {
+  display: flex;
+  opacity: 1;
+  transition: all 1s; }
 
 .button {
   border: none;

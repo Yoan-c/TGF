@@ -77,12 +77,30 @@ const Main = () => {
         </div>
         <div className="allInfo__filterBtn">
           <div>
-            <Button value="Filter" bgColor="blueLight" height="50" width="90" />
+            <label
+              htmlFor="showFilter"
+              className="button button--blueLight"
+              style={{
+                height: "50px",
+                minWidth: "90px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              Filter
+            </label>
           </div>
           <div>
             <Button value="Poser une question" height="50" width="150" />
           </div>
         </div>
+        <input
+          type="checkbox"
+          className="checkbox"
+          id="showFilter"
+          name="showFilter"
+        />
         <div className="filterInfo">
           <div className="filterInfo__filter">
             <p>Filtrer par : </p>

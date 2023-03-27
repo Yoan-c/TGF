@@ -17,6 +17,7 @@ const Button = (props) => {
   let styleSize;
   if (height > 0 && width > 0)
     styleSize = { minHeight: `${height}px`, minWidth: `${width}px` };
+
   return (
     <button className={styleBtn} style={styleSize} onClick={props.onClick}>
       {props.value}
