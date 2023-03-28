@@ -6,7 +6,6 @@ import "react-toastify/dist/ReactToastify.css";
 import Header from "./Header";
 
 const AskQuestion = () => {
-  const [user, setUser] = useState(null);
   const [title, setTitle] = useState(null);
   const [description, setDescription] = useState(null);
 
@@ -16,10 +15,7 @@ const AskQuestion = () => {
     axios
       .get(url, { withCredentials: true })
       .then(function (res) {
-        if (res.data.status === "success") {
-          setUser(res.data.user);
-        } else {
-          setUser(null);
+        if (res.data.status !== "success") {
           navigate("/login");
         }
       })

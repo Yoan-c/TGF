@@ -1,0 +1,92 @@
+.allUserGroupe {
+    padding: 1rem;
+}
+
+.allUser {
+    display: flex;
+}
+
+.cardUser {
+    background-color: $color-primary-grey;
+    margin: 1rem;
+    border-radius: 3px;
+    width: 140px;
+    height: 181px;
+
+    &__img {
+        display: flex;
+        justify-content: center;
+        border-bottom: 1px solid $color-primary-blue-light;
+    }
+
+    &__img img {
+        padding: 1rem;
+
+        width: 90px;
+    }
+
+    &__profil {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        position: relative;
+    }
+
+    &__profil p:first-child {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    &__profil p:last-child {
+        position: absolute;
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: bold;
+        top: 4.2rem;
+        left: 2.2rem;
+    }
+}
+
+.user {
+    &__info {
+        padding: 2rem;
+        font-size: 1.6rem;
+        display: flex;
+        justify-content: center;
+    }
+
+}
+
+.compte__label,
+.email__label,
+.pseudo__label,
+.image__label,
+.imageUpdate__label {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.compte__data,
+.email__data,
+.pseudo__data,
+.image__data {
+    position: relative;
+    left: 2rem;
+}
+
+.compte,
+.email,
+.pseudo,
+.image {
+    margin-bottom: 2rem;
+}
+
+.userImg {
+    width: 90px;
+}
+
+.updateBtn {
+    margin-top: 5px;
+}

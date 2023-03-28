@@ -32,3 +32,9 @@ export function format(date) {
   //  sec
   return `${dateDiffSec} secondes`;
 }
+
+export function formatLocal(date) {
+  const dateUser = new Date(date);
+  let dateFormat = `${dateUser.getDate()}/${dateUser.getMonth()}/${dateUser.getFullYear()}`;
+  return dateFormat;
+}

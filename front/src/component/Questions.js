@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { redirect, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Button from "./Button";
 import { format } from "../utils/format";
 import Header from "./Header";
@@ -24,17 +24,13 @@ const Questions = (props) => {
         setComments(res.data.question.comments);
         setUser(res.data.user);
       })
-      .catch(function (error) {
-        console.log(error.message);
-        setError(error.message);
+      .catch(function (err) {
+        console.log(error);
+        setError(err);
       });
-  }, [id]);
+  }, [id, error]);
 
   const handleSubmit = () => {
-    console.log("envoi du commentaire");
-    console.log(oneComment);
-    console.log(id);
-
     let url = `${process.env.REACT_APP_URL}/questions/${id}/comments`;
     axios
       .post(

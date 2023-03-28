@@ -11,6 +11,13 @@ html {
 body {
   box-sizing: border-box; }
 
+a {
+  text-decoration: none; }
+
+a,
+a:visited {
+  color: black; }
+
 .allInfo {
   padding: 2rem; }
   .allInfo__filterBtn {
@@ -167,7 +174,7 @@ body {
   text-align: left;
   padding: 1rem;
   border-radius: 3px;
-  transition: all 2s; }
+  transition: all .5s; }
   .menu__public p,
   .menu__private p {
     color: rgba(0, 101, 157, 0.87);
@@ -201,7 +208,7 @@ body {
   top: -5rem;
   padding: 1rem;
   opacity: 0;
-  transition: all 1s; }
+  transition: all .5s; }
   .search__group__detail {
     background-color: white;
     border-radius: 3px; }
@@ -221,7 +228,7 @@ body {
 .checkbox__search:checked + .search__group {
   opacity: 1;
   top: 6.7rem;
-  transition: all 1s; }
+  transition: all .5s; }
 
 .postQuestion {
   padding: 1rem;
@@ -396,6 +403,76 @@ body {
   border-top: 23px solid rgba(0, 0, 0, 0.25);
   border-right: 13px solid transparent;
   border-left: 12px solid transparent; }
+
+.allUserGroupe {
+  padding: 1rem; }
+
+.allUser {
+  display: flex; }
+
+.cardUser {
+  background-color: #EFECEC;
+  margin: 1rem;
+  border-radius: 3px;
+  width: 140px;
+  height: 181px; }
+  .cardUser__img {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid rgba(0, 101, 157, 0.6); }
+  .cardUser__img img {
+    padding: 1rem;
+    width: 90px; }
+  .cardUser__profil {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative; }
+  .cardUser__profil p:first-child {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center; }
+  .cardUser__profil p:last-child {
+    position: absolute;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    top: 4.2rem;
+    left: 2.2rem; }
+
+.user__info {
+  padding: 2rem;
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: center; }
+
+.compte__label,
+.email__label,
+.pseudo__label,
+.image__label,
+.imageUpdate__label {
+  font-weight: bold;
+  margin-bottom: 1rem; }
+
+.compte__data,
+.email__data,
+.pseudo__data,
+.image__data {
+  position: relative;
+  left: 2rem; }
+
+.compte,
+.email,
+.pseudo,
+.image {
+  margin-bottom: 2rem; }
+
+.userImg {
+  width: 90px; }
+
+.updateBtn {
+  margin-top: 5px; }
 
 .header {
   background-color: #EFECEC;

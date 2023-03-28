@@ -6,6 +6,8 @@ import Signup from "./component/auth/Signup";
 import Home from "./component/Home";
 import Main from "./component/Main";
 import Questions from "./component/Questions";
+import Account from "./component/user/Account";
+import AllUser from "./component/user/AllUser";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Route path="/questions/:id" element={<Questions />} />
         <Route path="/askQuestion" element={<AskQuestion />} />
         <Route path="/logout" element={<Logout />} />
+        <Route path="/user" element={<AllUser />} />
+        <Route path="/account" element={<Account />} />
         <Route path="/" element={<Home />} />
       </Routes>
     </BrowserRouter>

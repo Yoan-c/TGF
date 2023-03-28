@@ -1,6 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import { findUrl } from "../utils/findUrl";
 
 const Nav = () => {
+  const [user, setUser] = useState("");
+  useEffect(() => {
+    let url = `${process.env.REACT_APP_URL}/user/me`;
+    axios
+      .get(url, { withCredentials: true })
+      .then(function (res) {
+        if (res.data.status === "success") {
+          setUser(res.data.user);
+        }
+      })
+      .catch(function (error) {
+        // console.log(error.message);
+      });
+  }, []);
   return (
     <nav className="nav">
       <label className="nav__menu" htmlFor="showMenu"></label>
@@ -14,16 +31,49 @@ const Nav = () => {
         <div className="menu__public">
           <p>Public</p>
           <ul>
-            <li>Question</li>
-            <li>Utilisateur</li>
+            {findUrl(window.location.href) === "forum" ? (
+              <li>
+                <Link to="/forum" style={{ color: "#ff9839" }}>
+                  Question
+                </Link>
+              </li>
+            ) : (
+              <li>
+                <Link to="/forum">Question</Link>
+              </li>
+            )}
+            {findUrl(window.location.href) === "user" ? (
+              <li>
+                <Link to="/user" style={{ color: "#ff9839" }}>
+                  Utilisateur
+                </Link>
+              </li>
+            ) : (
+              <li>
+                <Link to="/user">Utilisateur</Link>
+              </li>
+            )}
           </ul>
         </div>
         <div className="menu__private">
-          <p> Privée</p>
-          <ul>
-            <li>Question</li>
-            <li>Utilisateur</li>
-          </ul>
+          {user && (
+            <>
+              <p> Privée</p>
+              <ul>
+                {findUrl(window.location.href) === "account" ? (
+                  <li>
+                    <Link to="/account" style={{ color: "#ff9839" }}>
+                      Compte
+                    </Link>
+                  </li>
+                ) : (
+                  <li>
+                    <Link to="/account">Compte</Link>
+                  </li>
+                )}
+              </ul>
+            </>
+          )}
         </div>
       </div>
     </nav>

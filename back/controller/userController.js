@@ -5,12 +5,14 @@ const catchAsync = require("../utils/catchAsync");
 const AppError = require("../utils/appError");
 const User = require("../model/userModel");
 
-exports.getAllUser = (req, res, next) => {
+exports.getAllUser = catchAsync(async (req, res, next) => {
+  const users = await User.find({});
+
   res.status(200).json({
     status: "success",
-    message: "ok",
+    users,
   });
-};
+});
 
 exports.updatePassword = catchAsync(async (req, res, next) => {
   let user = req.user;
@@ -78,11 +80,10 @@ exports.updateUser = catchAsync(async (req, res, next) => {
 
   if (req.updatePhoto && req.oldPhotoName) {
     req.updatePhoto = false;
-    console.log(`${__dirname}/../../front/public/img/${req.oldPhotoName}`);
     fs.unlink(
       `${__dirname}/../../front/public/img/${req.oldPhotoName}`,
       (err) => {
-        console.log(err);
+        if (err) console.log(err);
       }
     );
   }

@@ -62,8 +62,6 @@ const Main = () => {
         setSizeQuestions(res.data.size);
       })
       .catch(function (error) {});
-
-    //return localStorage.setItem("search", "");
   }, [sort, orderBy, asc, search]);
 
   const handleQuestion = (id) => {

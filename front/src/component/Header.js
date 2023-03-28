@@ -15,7 +15,6 @@ const Header = () => {
       .then(function (res) {
         if (res.data.status === "success") {
           setUser(res.data.user);
-          //  window.location.reload(true);
         }
       })
       .catch(function (error) {

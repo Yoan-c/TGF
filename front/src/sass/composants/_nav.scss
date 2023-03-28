@@ -44,7 +44,7 @@
     text-align: left;
     padding: 1rem;
     border-radius: 3px;
-    transition: all 2s;
+    transition: all .5s;
 
     &__public p,
     &__private p {
@@ -90,7 +90,7 @@
     top: -5rem;
     padding: 1rem;
     opacity: 0;
-    transition: all 1s;
+    transition: all .5s;
 
     &__detail {
         background-color: white;
@@ -118,5 +118,5 @@
 .checkbox__search:checked+.search__group {
     opacity: 1;
     top: 6.7rem;
-    transition: all 1s;
+    transition: all .5s;
 }
