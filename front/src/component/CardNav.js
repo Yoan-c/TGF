@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Button from "./Button";
 
 const CardNav = (props) => {
@@ -13,14 +12,13 @@ const CardNav = (props) => {
       {props.value}
 
       <div className="homeMain__card__button">
-        <Link to="login">
-          <Button
-            value={props.btnText}
-            bgColor={props.btnColor}
-            heigth="50"
-            width="50"
-          />
-        </Link>
+        <Button
+          value={props.btnText}
+          bgColor={props.btnColor}
+          heigth="50"
+          width="50"
+          onClick={props.onClick}
+        />
       </div>
     </div>
   );

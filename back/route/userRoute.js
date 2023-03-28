@@ -7,9 +7,11 @@ const router = express.Router();
 router.post("/signup", authController.signup);
 router.post("/login", authController.login);
 router.get("/logout", authController.logout);
+router.get("/me", authController.isLoggued, userController.getMe);
 router.use(authController.protect);
 router.patch("/updatePassword", userController.updatePassword);
 router.get("/", userController.getAllUser);
+
 router.patch(
   "/:id",
   userController.uploadUserPhoto,

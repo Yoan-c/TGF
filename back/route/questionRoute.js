@@ -6,13 +6,15 @@ const authController = require("../controller/authController");
 const router = express.Router();
 router.get("/", questionController.getAllQuestion);
 router.route("/:id/comments").get(commentController.getComments);
+router
+  .route("/:id")
+  .get(authController.isLoggued, questionController.getQuestion);
 router.use(authController.protect);
 
 router.post("/create", questionController.createQuestion);
 
 router
   .route("/:id")
-  .get(questionController.getQuestion)
   .delete(
     authController.restrictTo("admin"),
     questionController.deleteQuestion

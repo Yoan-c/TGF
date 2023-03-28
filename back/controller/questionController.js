@@ -3,7 +3,7 @@ const catchAsync = require("../utils/catchAsync");
 const AppError = require("../utils/appError");
 
 const filterQuestion = (query) => {
-  let { answer, orderby, asc } = query;
+  let { answer, orderby, asc, search } = query;
   if (!answer || answer !== "false") answer = true;
   else answer = false;
   if (!orderby || orderby !== "answer") orderby = "creationQuestion";
@@ -11,18 +11,29 @@ const filterQuestion = (query) => {
   if (!asc || asc !== "false") asc = true;
   else asc = false;
 
+  let research = {};
+  if (search) {
+    var exp = new RegExp(search, "gi");
+    research = {
+      question: { $regex: exp },
+    };
+  }
+  if (!answer) research = { ...research, comments: { $size: 0 } };
+
   const filter = {
     sort: asc == true ? orderby : `-${orderby}`,
-    isAnswer: answer ? {} : { comments: { $size: 0 } },
+    isAnswer: research,
   };
   return filter;
 };
 
 exports.getAllQuestion = catchAsync(async (req, res, next) => {
   const filter = filterQuestion(req.query);
-
   let questions = await Question.find(filter.isAnswer).sort(filter.sort);
-
+  if (filter.sort === "-comments")
+    questions.sort((a, b) => {
+      return b.comments.length - a.comments.length;
+    });
   res.status(200).json({
     status: "success",
     message: "Toute les questions",

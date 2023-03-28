@@ -80,6 +80,21 @@ exports.protect = catchAsync(async (req, res, next) => {
   next();
 });
 
+exports.isLoggued = catchAsync(async (req, res, next) => {
+  const token = req.cookies.jwt;
+  if (!token) {
+    return next();
+  }
+  const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+  const freshUser = await User.findById(decoded.id);
+  if (!freshUser) return next();
+  req.user = freshUser;
+  req.updatePhoto = false;
+  req.oldPhotoName = req.user.photo;
+  res.locals.user = freshUser;
+  next();
+});
+
 exports.logout = (req, res, next) => {
   res.cookie("jwt", "", {
     expiresIn: Date.now() - 1,

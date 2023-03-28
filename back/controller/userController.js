@@ -93,3 +93,14 @@ exports.updateUser = catchAsync(async (req, res, next) => {
     user,
   });
 });
+
+exports.getMe = catchAsync(async (req, res, next) => {
+  if (!req.user)
+    return res.status(200).json({
+      status: "fail",
+    });
+  res.status(200).json({
+    status: "success",
+    user: req.user,
+  });
+});

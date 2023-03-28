@@ -32,3 +32,91 @@
         }
     }
 }
+
+.menu {
+    position: absolute;
+    width: 200px;
+    background-color: white;
+    z-index: 20;
+    top: 60px;
+    left: -215px;
+    opacity: 0;
+    text-align: left;
+    padding: 1rem;
+    border-radius: 3px;
+    transition: all 2s;
+
+    &__public p,
+    &__private p {
+        color: $color-primary-blue-dark;
+        font-weight: bold;
+        font-size: 1.4rem;
+    }
+
+    &__public ul,
+    &__private ul {
+        list-style: none;
+        position: relative;
+        margin-top: 1.5rem;
+        margin-bottom: 1.8rem;
+        left: 12px;
+    }
+
+    &__public ul li:not(:last-child),
+    &__private ul li:not(:last-child) {
+
+        margin-bottom: 1.4rem;
+    }
+}
+
+.checkbox__menu {
+    display: none;
+
+}
+
+.checkbox__menu:checked+.menu {
+    opacity: 1;
+    left: -28px;
+    background-color: whitesmoke;
+}
+
+
+.search__group {
+    position: absolute;
+    z-index: 20;
+    width: 29.2rem;
+    height: 6.2rem;
+    left: 2.9rem;
+    top: -5rem;
+    padding: 1rem;
+    opacity: 0;
+    transition: all 1s;
+
+    &__detail {
+        background-color: white;
+        border-radius: 3px;
+
+        & input {
+            border: none;
+            border-bottom: 1px solid grey;
+            padding: 0.5rem;
+            margin: .5rem;
+            height: 26px;
+        }
+
+        & button {
+            position: relative;
+            top: -1px;
+        }
+    }
+}
+
+.checkbox__search {
+    display: none;
+}
+
+.checkbox__search:checked+.search__group {
+    opacity: 1;
+    top: 6.7rem;
+    transition: all 1s;
+}

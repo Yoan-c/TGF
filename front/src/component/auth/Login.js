@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Button from "../Button";
+import Header from "../Header";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -52,40 +53,43 @@ const Login = () => {
   };
 
   return (
-    <main className="main">
-      <form action="/" method="post" className="form form--login">
-        <div className="form__error">
-          <p className="form__error__text">{error}</p>
-        </div>
-        <div className="form__group">
-          <label htmlFor="email">Email :</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div className="form__group">
-          <label htmlFor="password">Password :</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <div className="form__group">
-          <Button
-            value="Login"
-            bgColor="blue"
-            height="45"
-            width="100"
-            onClick={handleSubmit}
-          />
-        </div>
-      </form>
-    </main>
+    <>
+      <Header />
+      <main className="main">
+        <form action="/" method="post" className="form form--login">
+          <div className="form__error">
+            <p className="form__error__text">{error}</p>
+          </div>
+          <div className="form__group">
+            <label htmlFor="email">Email :</label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="form__group">
+            <label htmlFor="password">Password :</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className="form__group">
+            <Button
+              value="Login"
+              bgColor="blue"
+              height="45"
+              width="100"
+              onClick={handleSubmit}
+            />
+          </div>
+        </form>
+      </main>
+    </>
   );
 };
 

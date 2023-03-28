@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "../Button";
+import Header from "../Header";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
@@ -35,58 +36,61 @@ const Signup = () => {
     console.log(username);
   };
   return (
-    <main className="main">
-      <form action="/" method="post" className="form">
-        <div className="form__error">
-          <p className="form__error__text">{error}</p>
-        </div>
-        <div className="form__group">
-          <label htmlFor="username">Pseudo :</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </div>
-        <div className="form__group">
-          <label htmlFor="email">Email :</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div className="form__group">
-          <label htmlFor="password">Password :</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <div className="form__group">
-          <label htmlFor="confPassword">Confirm password :</label>
-          <input
-            type="password"
-            id="confPassword"
-            value={confPassword}
-            onChange={(e) => setConfPassword(e.target.value)}
-          />
-        </div>
-        <div className="form__group">
-          <Button
-            value="Signup"
-            bgColor="blue"
-            height="45"
-            width="100"
-            onClick={handleSubmit}
-          />
-        </div>
-      </form>
-    </main>
+    <>
+      <Header />
+      <main className="main">
+        <form action="/" method="post" className="form">
+          <div className="form__error">
+            <p className="form__error__text">{error}</p>
+          </div>
+          <div className="form__group">
+            <label htmlFor="username">Pseudo :</label>
+            <input
+              type="text"
+              id="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
+          <div className="form__group">
+            <label htmlFor="email">Email :</label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="form__group">
+            <label htmlFor="password">Password :</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className="form__group">
+            <label htmlFor="confPassword">Confirm password :</label>
+            <input
+              type="password"
+              id="confPassword"
+              value={confPassword}
+              onChange={(e) => setConfPassword(e.target.value)}
+            />
+          </div>
+          <div className="form__group">
+            <Button
+              value="Signup"
+              bgColor="blue"
+              height="45"
+              width="100"
+              onClick={handleSubmit}
+            />
+          </div>
+        </form>
+      </main>
+    </>
   );
 };
 

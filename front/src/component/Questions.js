@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { redirect, useNavigate, useParams } from "react-router-dom";
 import Button from "./Button";
 import { format } from "../utils/format";
+import Header from "./Header";
 
 const Questions = (props) => {
   const { id } = useParams();
@@ -82,59 +83,61 @@ const Questions = (props) => {
     navigate("/askQuestion");
   };
   return (
-    <div className="showOneQuestion">
-      <div className="oneQuestion">
-        <div className="oneQuestion__post">
-          <p>{questions.question}</p>
-          <p>
-            posté il y a {format(questions.creationQuestion)}, modifier il y a{" "}
-            {format(questions.updateQuestion)}
-          </p>
-        </div>
-        <div className="oneQuestion__ask">
-          <Button
-            onClick={askQuestion}
-            value="Poser une question"
-            height="30"
-            width="130"
-          />
-        </div>
-      </div>
-      <div className="mainQuestion">
-        <div className="leftPartQuestion">
-          <div className="leftPartQuestion__vote">
-            <p className="arrowUp"></p>
-            <p>255</p>
-            <p className="arrowDown"></p>
+    <>
+      <Header />
+      <div className="showOneQuestion">
+        <div className="oneQuestion">
+          <div className="oneQuestion__post">
+            <p>{questions.question}</p>
+            <p>
+              posté il y a {format(questions.creationQuestion)}, modifier il y a{" "}
+              {format(questions.updateQuestion)}
+            </p>
+          </div>
+          <div className="oneQuestion__ask">
+            <Button
+              onClick={askQuestion}
+              value="Poser une question"
+              height="30"
+              width="130"
+            />
           </div>
         </div>
-        <div className="rightPartQuestion">
-          <div className="rightPartQuestion__description">
-            {questions.description}
+        <div className="mainQuestion">
+          <div className="leftPartQuestion">
+            <div className="leftPartQuestion__vote">
+              <p className="arrowUp"></p>
+              <p>255</p>
+              <p className="arrowDown"></p>
+            </div>
           </div>
-          <div className="rightPartQuestion__response">
-            {comments
-              ? comments.map((data, index) => {
-                  return (
-                    <div
-                      className="rightPartQuestion__response__group"
-                      key={index}
-                    >
-                      <p>{data.comments}</p>
-                      <p className="rightPartQuestion__response__info">
-                        {data.user.username} posté il y a{" "}
-                        {format(data.creationComments)}{" "}
-                      </p>
-                    </div>
-                  );
-                })
-              : "Loading..."}
-          </div>
+          <div className="rightPartQuestion">
+            <div className="rightPartQuestion__description">
+              {questions.description}
+            </div>
+            <div className="rightPartQuestion__response">
+              {comments
+                ? comments.map((data, index) => {
+                    return (
+                      <div
+                        className="rightPartQuestion__response__group"
+                        key={index}
+                      >
+                        <p>{data.comments}</p>
+                        <p className="rightPartQuestion__response__info">
+                          {data.user.username} posté il y a{" "}
+                          {format(data.creationComments)}{" "}
+                        </p>
+                      </div>
+                    );
+                  })
+                : "Loading..."}
+            </div>
 
-          <div className="rightPartQuestion__answer">
-            {
-              postComment
-              /*
+            <div className="rightPartQuestion__answer">
+              {
+                postComment
+                /*
             <p>Votre réponse : </p>
             <textarea
               name="answer"
@@ -155,11 +158,12 @@ const Questions = (props) => {
               Répondre
             </button>
             */
-            }
+              }
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
