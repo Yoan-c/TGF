@@ -48,12 +48,12 @@ exports.signup = catchAsync(async (req, res, next) => {
 exports.login = catchAsync(async (req, res, next) => {
   const { email, password } = req.body;
   if (!email || !password) {
-    return next(new AppError("Entrez le mail / mot de passe", 400));
+    return next(new AppError("Enter email/password", 400));
   }
   const user = await User.findOne({ email }).select("+password");
 
   if (!user || !(await user.correctPassword(user.password, password))) {
-    return next(new AppError("email ou mot de passe incorrect", 401));
+    return next(new AppError("email or password is incorrect", 401));
   }
   user.password = "";
   req.user = user;
@@ -109,7 +109,7 @@ exports.logout = (req, res, next) => {
 exports.restrictTo = (...role) => {
   return (req, res, next) => {
     if (!role.includes(req.user.role))
-      return next(new AppError("Vous n'avez pas la persmission", 403));
+      return next(new AppError("Access denied", 403));
     next();
   };
 };

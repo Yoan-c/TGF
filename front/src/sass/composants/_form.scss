@@ -1,7 +1,7 @@
 .form {
     font-size: 1.4rem;
     position: relative;
-    height: 36rem;
+    height: 40rem;
     width: 30rem;
     background-color: $color-nav-grey;
     margin: auto;
@@ -25,6 +25,7 @@
             height: 2rem;
             margin-top: 1rem;
             border-radius: .5rem;
+            padding: 1rem;
         }
 
         & button {

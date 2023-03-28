@@ -46,7 +46,7 @@ exports.createQuestion = catchAsync(async (req, res, next) => {
   const { title, description } = req.body;
   if (!title || !description)
     return next(
-      new AppError("Veuillez indiquer un titre et ou votre probleme", 400)
+      new AppError("Please indicate a title and/or your issue.", 400)
     );
   const question = await Question.create({
     question: title,
@@ -63,10 +63,10 @@ exports.createQuestion = catchAsync(async (req, res, next) => {
 
 exports.getQuestion = catchAsync(async (req, res, next) => {
   const id = req.params.id;
-  if (!id) return next(new AppError("Une erreur est survenue ", 400));
+  if (!id) return next(new AppError("An error has occurred. ", 400));
   let question = await Question.findById(id).populate("comments");
   if (!question)
-    return next(new AppError("Aucune question trouvé sur le forum", 400));
+    return next(new AppError("No question found on the forum", 400));
 
   res.status(200).json({
     status: "success",
@@ -77,14 +77,14 @@ exports.getQuestion = catchAsync(async (req, res, next) => {
 
 exports.resolveQuestion = catchAsync(async (req, res, next) => {
   const id = req.params.id;
-  if (!id) return next(new AppError("Veuillez indiquer le titre ", 400));
+  if (!id) return next(new AppError("Please indicate the title. ", 400));
   const question = await Question.findByIdAndUpdate(
     id,
     { isResolve: true },
     { new: true }
   );
   if (!question)
-    return next(new AppError("Aucune question trouvé sur le forum", 400));
+    return next(new AppError("No question found on the forum", 400));
 
   res.status(200).json({
     status: "success",
@@ -95,7 +95,7 @@ exports.resolveQuestion = catchAsync(async (req, res, next) => {
 
 exports.deleteQuestion = catchAsync(async (req, res, next) => {
   const id = req.params.id;
-  if (!id) return next(new AppError("Veuillez indiquer le titre ", 400));
+  if (!id) return next(new AppError("Please indicate the title. ", 400));
   await Question.findByIdAndDelete(id);
 
   res.status(200).json({

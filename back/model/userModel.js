@@ -5,15 +5,15 @@ const bcrypt = require("bcrypt");
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
-    required: [true, "Entrez un pseudo"],
+    required: [true, "Please enter a pseudo"],
     unique: true,
   },
   email: {
     type: String,
-    required: [true, "Entrez une adresse email"],
+    required: [true, "Please enter an email address."],
     unique: true,
     lowercase: true,
-    validate: [validator.isEmail, "Entrez une adresse email valide"],
+    validate: [validator.isEmail, "Please enter a valid email address."],
   },
   photo: {
     type: String,
@@ -26,18 +26,18 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: [true, "Entrez un mot de passe"],
-    minlength: 4,
+    required: [true, "Please enter a password"],
+    minlength: [4, "password must be at least 4 characters"],
     select: false,
   },
   confirmPassword: {
     type: String,
-    required: [true, "Confirmer votre mote de passe"],
+    required: [true, "Confirm your password"],
     validate: {
       validator: function (el) {
         return this.password === el;
       },
-      message: "Les mots de passe sont différents",
+      message: "Passwords do not match.",
     },
   },
   compteCreated: {

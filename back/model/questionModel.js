@@ -3,12 +3,12 @@ const mongoose = require("mongoose");
 const questionSchema = new mongoose.Schema({
   question: {
     type: String,
-    required: [true, "Une question est requise"],
+    required: [true, "A question is required"],
     unique: true,
   },
   description: {
     type: String,
-    required: [true, "Une explication est requise"],
+    required: [true, "An explanation is required."],
   },
   creationQuestion: {
     type: Date,
@@ -17,7 +17,7 @@ const questionSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.ObjectId,
     ref: "User",
-    required: [true, "Une question est posé par un utilisateur"],
+    required: [true, "A question is asked by a user"],
   },
   comments: [
     {

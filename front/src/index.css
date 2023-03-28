@@ -103,7 +103,7 @@ a:visited {
 .form {
   font-size: 1.4rem;
   position: relative;
-  height: 36rem;
+  height: 40rem;
   width: 30rem;
   background-color: #D9D9D9;
   margin: auto;
@@ -122,7 +122,8 @@ a:visited {
       border-bottom: 2px solid #A4A4A4;
       height: 2rem;
       margin-top: 1rem;
-      border-radius: .5rem; }
+      border-radius: .5rem;
+      padding: 1rem; }
     .form__group button {
       position: absolute;
       left: 50%;

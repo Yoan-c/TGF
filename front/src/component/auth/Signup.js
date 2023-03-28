@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "../Button";
 import Header from "../Header";
+import axios from "axios";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
@@ -34,6 +35,28 @@ const Signup = () => {
       console.log("Envoi formulaire signup avec axios");
     }
     console.log(username);
+    let url = `${process.env.REACT_APP_URL}/user/signup`;
+    axios
+      .post(
+        url,
+        {
+          email,
+          password,
+          confirmPassword: confPassword,
+          username,
+        },
+        { withCredentials: true }
+      )
+      .then(function (res) {
+        // handle success
+        console.log(res);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+        console.log(error.response.data.message);
+        setError(error.response.data.message);
+      });
   };
   return (
     <>

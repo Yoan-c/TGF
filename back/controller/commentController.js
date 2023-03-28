@@ -42,7 +42,7 @@ exports.addComments = catchAsync(async (req, res, next) => {
 
 exports.deleteComments = catchAsync(async (req, res, next) => {
   const id = req.params.id;
-  if (!id) return next(new AppError("Une erreur est survenu", 400));
+  if (!id) return next(new AppError("An error has occurred.", 400));
   let comment = await Comment.findByIdAndDelete(id);
   res.status(200).json({
     status: "success",
@@ -51,7 +51,7 @@ exports.deleteComments = catchAsync(async (req, res, next) => {
 
 exports.getOneComments = catchAsync(async (req, res, next) => {
   const id = req.params.id;
-  if (!id) return next(new AppError("Une erreur est survenu", 400));
+  if (!id) return next(new AppError("An error has occurred.", 400));
   let comment = await Comment.findById(id);
   res.status(200).json({
     status: "success",
@@ -62,9 +62,8 @@ exports.getOneComments = catchAsync(async (req, res, next) => {
 exports.UpdateComments = catchAsync(async (req, res, next) => {
   const id = req.params.id;
   const { comments } = req.body;
-  if (!id) return next(new AppError("Une erreur est survenu", 400));
-  if (!comments)
-    return next(new AppError("Ajouter un commentaire à modifier", 400));
+  if (!id) return next(new AppError("An error has occurred.", 400));
+  if (!comments) return next(new AppError("Add a comment to edit", 400));
   let oldComment = await Comment.findById(id);
   const idQuestion = oldComment.question;
   const date = Date.now();

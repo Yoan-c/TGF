@@ -8,12 +8,12 @@ const commentsSchema = mongoose.Schema({
   user: {
     type: mongoose.Schema.ObjectId,
     ref: "User",
-    required: [true, "Une question est posé par un utilisateur"],
+    required: [true, "A question is asked by a user"],
   },
   question: {
     type: mongoose.Schema.ObjectId,
     ref: "question",
-    required: [true, "Un commentaire concerne une question"],
+    required: [true, "A comment is related to a question"],
   },
   comments: {
     type: String,

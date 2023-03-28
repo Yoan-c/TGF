@@ -3,6 +3,7 @@ import axios from "axios";
 import Button from "./Button";
 import Nav from "./Nav";
 import { Link, useNavigate } from "react-router-dom";
+import searchImg from "../search_icon.png";
 
 const Header = () => {
   const [user, setUser] = useState(null);
@@ -61,11 +62,7 @@ const Header = () => {
       </Link>
       <div className="header__search">
         <label htmlFor="search">
-          <img
-            src="img/search_icon.png"
-            style={{ width: "20px" }}
-            alt="rechercher"
-          />
+          <img src={searchImg} style={{ width: "20px" }} alt="rechercher" />
         </label>
         <input
           type="checkbox"
