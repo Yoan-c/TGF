@@ -8,8 +8,11 @@
 @import "composants/logo";
 @import "composants/nav";
 @import "composants/questions";
+@import "composants/triangle";
 
 @import "layout/header";
 @import "layout/main";
 
 @import "pages/home";
+
+@import "utils/margin";

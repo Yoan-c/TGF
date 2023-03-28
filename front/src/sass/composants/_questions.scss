@@ -61,3 +61,103 @@
 .questionGroup:not(:last-child) {
     margin-bottom: 2rem;
 }
+
+
+.oneQuestion {
+    display: flex;
+    flex-direction: column-reverse;
+    border-bottom: 3px solid $color-primary-grey-lighter;
+    padding: 1rem;
+
+    &__post {
+        padding: 1rem;
+    }
+
+    &__post p:first-child {
+        color: $color-primary-blue-dark;
+        font-weight: bold;
+        font-size: 1.6rem;
+    }
+
+    &__post p:last-child {
+        color: $color-primary-grey-darker;
+        font-weight: bold;
+        font-size: 1.1rem;
+        margin-top: 5px;
+    }
+
+    &__ask {
+        align-self: flex-end;
+    }
+}
+
+.mainQuestion {
+    display: flex;
+    padding: 1rem;
+    min-height: 52vh;
+}
+
+.leftPartQuestion {
+
+    background: $color-nav-grey;
+    padding: 1rem;
+    margin-right: .8rem;
+
+    &__vote {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1.6rem;
+        font-weight: bold;
+    }
+
+    &__vote p:first-child {
+        margin-bottom: 10px;
+    }
+
+    &__vote p:last-child {
+        margin-top: 10px;
+    }
+}
+
+.rightPartQuestion {
+
+
+    &__description {
+        font-size: 1.6rem;
+        margin-bottom: 2rem;
+    }
+
+    &__response {
+        font-size: 1.2rem;
+        margin-bottom: 3rem;
+    }
+
+    &__response p:last-child {
+        margin-top: 5px;
+        position: absolute;
+        right: 2rem;
+        color: $color-primary-blue;
+    }
+
+    &__answer {
+        background-color: $color-nav-grey;
+        padding: 1rem;
+        min-height: 260px;
+    }
+
+    &__answer p:first-child {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    &__answer textarea {
+        padding: 1rem;
+        display: block;
+    }
+
+    &__answer button {
+        padding: 1rem;
+        float: right;
+    }
+}

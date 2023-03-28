@@ -1,0 +1,17 @@
+.arrowUp {
+    display: inline-block;
+    height: 0;
+    width: 0;
+    border-right: 12px solid transparent;
+    border-bottom: 23px solid $color-dark-light;
+    border-left: 13px solid transparent;
+}
+
+.arrowDown {
+    display: inline-block;
+    height: 0;
+    width: 0;
+    border-top: 23px solid $color-dark-light;
+    border-right: 13px solid transparent;
+    border-left: 12px solid transparent;
+}
