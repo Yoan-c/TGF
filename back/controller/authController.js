@@ -18,7 +18,7 @@ const createSendToken = (user, statusCode, req, res) => {
       Date.now() + process.env.JWT_EXPIRES_IN * 24 * 60 * 60 * 1000
     ),
     httpOnly: true,
-    maxAge: 3600 * 1000, // expiration après 1 heure
+    //maxAge: 3600 * 1000, // expiration après 1 heure
   };
 
   res.cookie("jwt", token, cookieOptions);
