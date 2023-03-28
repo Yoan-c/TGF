@@ -26,7 +26,13 @@ const Header = () => {
   const btn = user ? (
     <>
       <Link to="/forum">
-        <Button value="forum" bgColor="blue" height="30" width="60" />
+        <Button
+          onClick={() => localStorage.removeItem("search")}
+          value="forum"
+          bgColor="blue"
+          height="30"
+          width="60"
+        />
       </Link>
       <Link to="/logout">
         <Button value="logout" bgColor="blue" height="30" width="60" />

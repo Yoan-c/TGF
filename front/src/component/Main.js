@@ -63,7 +63,7 @@ const Main = () => {
       })
       .catch(function (error) {});
 
-    // return localStorage.removeItem("search");
+    //return localStorage.setItem("search", "");
   }, [sort, orderBy, asc, search]);
 
   const handleQuestion = (id) => {
