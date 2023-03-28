@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AskQuestion from "./component/AskQuestion";
 import Login from "./component/auth/Login";
 import Signup from "./component/auth/Signup";
 import Header from "./component/Header";
@@ -16,6 +17,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/forum" element={<Main />} />
           <Route path="/questions/:id" element={<Questions />} />
+          <Route path="/askQuestion" element={<AskQuestion />} />
           <Route path="/" element={<Home />} />
         </Routes>
       </BrowserRouter>
