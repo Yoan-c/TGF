@@ -7,6 +7,8 @@ import { format } from "../utils/format";
 const Questions = (props) => {
   const { id } = useParams();
   const [questions, setQuestions] = useState([]);
+  const [comments, setComments] = useState([]);
+  const [oneComment, setOneComment] = useState("");
   const [error, setError] = useState("");
   useEffect(() => {
     let url = `${process.env.REACT_APP_URL}/questions/${id}`;
@@ -15,12 +17,43 @@ const Questions = (props) => {
       .then(function (res) {
         console.log(res);
         setQuestions(res.data.question);
+        setComments(res.data.question.comments);
       })
       .catch(function (error) {
         console.log(error.message);
         setError(error.message);
       });
   }, [id]);
+
+  const handleSubmit = () => {
+    console.log("envoi du commentaire");
+    console.log(oneComment);
+    console.log(id);
+    let user = localStorage.getItem("TGFU");
+    try {
+      user = JSON.parse(user);
+    } catch (err) {
+      user._id = "";
+      user.username = "";
+    }
+    let url = `${process.env.REACT_APP_URL}/questions/${id}/comments`;
+    axios
+      .post(
+        url,
+        {
+          comments: oneComment,
+        },
+        { withCredentials: true }
+      )
+      .then(function (res) {
+        console.log(res.data.comment);
+        setComments([...comments, res.data.comment]);
+      })
+      .catch(function (error) {
+        console.log(error.message);
+        setError(error.message);
+      });
+  };
   return (
     <div className="showOneQuestion">
       <div className="oneQuestion">
@@ -48,16 +81,19 @@ const Questions = (props) => {
             {questions.description}
           </div>
           <div className="rightPartQuestion__response">
-            {questions && questions.comments
-              ? questions.comments.map((comment, index) => {
+            {comments
+              ? comments.map((data, index) => {
                   return (
-                    <Fragment key={index}>
-                      <p>test</p>
-                      <p>
-                        {comment.user.username} posté il y a{" "}
-                        {format(comment.creationComments)}{" "}
+                    <div
+                      className="rightPartQuestion__response__group"
+                      key={index}
+                    >
+                      <p>{data.comments}</p>
+                      <p className="rightPartQuestion__response__info">
+                        {data.user.username} posté il y a{" "}
+                        {format(data.creationComments)}{" "}
                       </p>
-                    </Fragment>
+                    </div>
                   );
                 })
               : "Loading..."}
@@ -72,10 +108,13 @@ const Questions = (props) => {
               rows="8"
               style={{ resize: "none" }}
               placeholder="Entrez votre réponse"
+              onChange={(e) => {
+                setOneComment(e.target.value);
+              }}
             ></textarea>
             <button
               className="button button--blue mt-big mb-big"
-              type="submit"
+              onClick={() => handleSubmit()}
               style={{ height: "50px", width: "100px" }}
             >
               Répondre

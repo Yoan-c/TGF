@@ -244,13 +244,16 @@ body {
 
 .rightPartQuestion__response {
   font-size: 1.2rem;
-  margin-bottom: 3rem; }
-
-.rightPartQuestion__response p:last-child {
-  margin-top: 5px;
-  position: absolute;
-  right: 2rem;
-  color: #2093D4; }
+  margin-bottom: 2rem; }
+  .rightPartQuestion__response__group {
+    min-height: 4rem; }
+  .rightPartQuestion__response__group:not(:last-child) {
+    margin-bottom: 2rem; }
+  .rightPartQuestion__response__info {
+    margin-top: 5px;
+    position: absolute;
+    right: 2rem;
+    color: #2093D4; }
 
 .rightPartQuestion__answer {
   background-color: #D9D9D9;

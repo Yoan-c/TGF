@@ -130,15 +130,25 @@
 
     &__response {
         font-size: 1.2rem;
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
+
+        &__group {
+            min-height: 4rem;
+        }
+
+        &__group:not(:last-child) {
+            margin-bottom: 2rem;
+        }
+
+        &__info {
+            margin-top: 5px;
+            position: absolute;
+            right: 2rem;
+            color: $color-primary-blue;
+        }
     }
 
-    &__response p:last-child {
-        margin-top: 5px;
-        position: absolute;
-        right: 2rem;
-        color: $color-primary-blue;
-    }
+
 
     &__answer {
         background-color: $color-nav-grey;
