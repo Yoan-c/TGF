@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Header from "../Header";
 import { formatLocal } from "../../utils/format";
+import Menu from "../Menu";
 
 const AllUser = () => {
   const [users, setUsers] = useState(null);
@@ -20,6 +21,9 @@ const AllUser = () => {
   return (
     <>
       <Header />
+      <div className="menuMain">
+        <Menu />
+      </div>
       <div className="allUserGroupe">
         <div className="allUser">
           {users ? (

@@ -1,5 +1,11 @@
 .allUserGroupe {
     padding: 1rem;
+    float: left;
+    @include heightMain;
+
+    @include respond(phone) {
+        @include widhtMain
+    }
 }
 
 .allUser {
@@ -55,6 +61,13 @@
         font-size: 1.6rem;
         display: flex;
         justify-content: center;
+
+        @include respond(phone) {
+            @include widhtMain;
+            @include heightMain;
+            @include borderMain;
+        }
+
     }
 
 }

@@ -8,6 +8,10 @@
     font-weight: 200;
     min-width: 5rem;
 
+    @include respond(tab-port) {
+        @include sizeFont;
+    }
+
     &--blue {
         background-color: $color-primary-blue;
     }

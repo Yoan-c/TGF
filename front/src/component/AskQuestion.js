@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Header from "./Header";
+import Menu from "./Menu";
 
 const AskQuestion = () => {
   const [title, setTitle] = useState(null);
@@ -78,6 +79,9 @@ const AskQuestion = () => {
   return (
     <>
       <Header />
+      <div className="menuMain">
+        <Menu />
+      </div>
       <div className="postQuestion">
         <ToastContainer />
         <div className="postQuestion__showText">Poser une question</div>

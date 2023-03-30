@@ -14,7 +14,7 @@ const Button = (props) => {
   }
   const height = props.height ? props.height : 0;
   const width = props.width ? props.width : 0;
-  const font = props.fontSize ? props.fontSize : 1.2;
+  const font = props.fontSize ? props.fontSize : 1.6;
   let styleSize;
   if (height > 0 && width > 0)
     styleSize = {

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Button from "../Button";
 import Header from "../Header";
+import Menu from "../Menu";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -55,7 +56,10 @@ const Login = () => {
   return (
     <>
       <Header />
-      <main className="main">
+      <div className="menuMain">
+        <Menu />
+      </div>
+      <main className="mainLogin">
         <form action="/" method="post" className="form form--login">
           <div className="form__error">
             <p className="form__error__text">{error}</p>

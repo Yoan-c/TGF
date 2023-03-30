@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "../Button";
 import Header from "../Header";
 import axios from "axios";
+import Menu from "../Menu";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
@@ -61,7 +62,10 @@ const Signup = () => {
   return (
     <>
       <Header />
-      <main className="main">
+      <div className="menuMain">
+        <Menu />
+      </div>
+      <main className="mainLogin">
         <form action="/" method="post" className="form">
           <div className="form__error">
             <p className="form__error__text">{error}</p>

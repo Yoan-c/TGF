@@ -6,12 +6,20 @@
     text-align: center;
     position: relative;
 
+    @include respond(phone) {
+        display: none;
+    }
+
     &__menu {
         position: absolute;
         top: 1.35rem;
         left: 0.5rem;
         border-bottom: 2px solid black;
         width: 3rem;
+
+        @include respond(phone) {
+            display: none;
+        }
 
         &::before {
             content: "";
@@ -46,11 +54,30 @@
     border-radius: 3px;
     transition: all .5s;
 
+    @include respond(phone) {
+        opacity: 1;
+        position: relative;
+        left: 0;
+        height: 20rem;
+        width: 12rem;
+        top: 0;
+        font-size: 1.2rem;
+
+    }
+
+    @include respond(tab-port) {
+        @include sizeFont;
+    }
+
     &__public p,
     &__private p {
         color: $color-primary-blue-dark;
         font-weight: bold;
         font-size: 1.4rem;
+
+        @include respond(tab-port) {
+            @include sizeFont;
+        }
     }
 
     &__public ul,
@@ -92,9 +119,32 @@
     opacity: 0;
     transition: all .5s;
 
+    @include respond(phone) {
+        opacity: 1;
+        position: initial;
+        width: 80%;
+    }
+
+    @include respond(phone) {
+
+        max-width: 50rem;
+        margin: 0 auto;
+    }
+
+
+
+
     &__detail {
         background-color: white;
         border-radius: 3px;
+
+        @include respond(phone) {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 0.5rem;
+            padding-bottom: .5rem;
+            padding-right: 1rem;
+        }
 
         & input {
             border: none;
@@ -102,6 +152,9 @@
             padding: 0.5rem;
             margin: .5rem;
             height: 26px;
+            width: 80%;
+
+
         }
 
         & button {
@@ -119,4 +172,8 @@
     opacity: 1;
     top: 6.7rem;
     transition: all .5s;
+}
+
+.menuMain {
+    float: left;
 }

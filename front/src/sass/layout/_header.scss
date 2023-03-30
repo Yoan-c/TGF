@@ -7,9 +7,35 @@
     align-items: center;
     padding: 3rem;
 
+    @include respond(phone) {
+        display: grid;
+        grid-template-columns: [logo]100px [search]1fr [btn1]70px [btn2]70px;
+        padding: 0 1rem;
+        height: 12vh;
+    }
+
+    @include respond(tab-port) {
+        @include sizeFont;
+    }
+
     &__logo {
         color: $color-primary-orange;
         display: inline-block;
 
     }
+
+    &__search label {
+        @include respond(phone) {
+            display: none;
+        }
+    }
+
+    &__search {
+        @include respond(phone) {
+            width: 100%;
+            grid-column-start: 2;
+            justify-self: center;
+        }
+    }
+
 }

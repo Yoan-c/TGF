@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Button from "./Button";
 import { format } from "../utils/format";
 import Header from "./Header";
+import Menu from "./Menu";
 
 const Questions = (props) => {
   const { id } = useParams();
@@ -81,6 +82,10 @@ const Questions = (props) => {
   return (
     <>
       <Header />
+      <div className="menuMain">
+        <Menu />
+      </div>
+
       <div className="showOneQuestion">
         <div className="oneQuestion">
           <div className="oneQuestion__post">

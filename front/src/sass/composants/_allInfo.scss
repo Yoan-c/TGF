@@ -1,16 +1,44 @@
 .allInfo {
-    padding: 2rem;
+    height: 48vh;
+    @include bgColorGeneral;
+
+    @include respond(phone) {
+        border-bottom: 3px solid $color-primary-grey-lighter;
+    }
+
+    @include respond(tab-port) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 20vh;
+    }
 
     &__filterBtn {
         display: flex;
         justify-content: space-around;
         margin-bottom: 2rem;
-        ;
+
+        @include respond(tab-port) {
+            order: 3;
+            flex-direction: column-reverse;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem 5rem;
+        }
+
+        & div:first-child {
+            @include respond(tab-port) {
+
+                margin-top: 1rem;
+            }
+        }
     }
 
 }
 
 .allInfoQuestion {
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -35,11 +63,34 @@
     border-radius: 10px;
     // on cache l'élément
     padding: 0;
-    max-height: 0; 
+    max-height: 0;
     opacity: 0;
     overflow: hidden;
     transition: all 0.2s ease-out;
+
+    @include respond(tab-port) {
+
+        font-size: 1.4rem;
+        position: absolute;
+        left: calc((100% - 12rem)/2);
+        transform: translateX(-10%);
+        width: 252px;
+    }
+
+    @include respond(specialFilter) {
+        width: 316px;
+    }
+
+
+
+
+
+
     &__filter {
+        @include respond(tab-port) {
+            padding: 1rem;
+        }
+
         & p {
             font-weight: bold;
             font-size: 1.2rem;
@@ -96,9 +147,9 @@
 
 // quand on active la checkbox on modifie la class filterInfo
 .checkbox:checked+.filterInfo {
-  max-height: 300px;
-  opacity: 1;
-  transition: all 0.2s ease-out;
-  padding: 1rem;
-  
+    max-height: 300px;
+    opacity: 1;
+    transition: all 0.2s ease-out;
+    padding: 1rem;
+
 }

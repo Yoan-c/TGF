@@ -3,6 +3,7 @@ import axios from "axios";
 import Header from "../Header";
 import { formatLocal } from "../../utils/format";
 import Button from "../Button";
+import Menu from "../Menu";
 
 const Account = () => {
   const [user, setUser] = useState(null);
@@ -46,6 +47,9 @@ const Account = () => {
     <>
       {console.log(user)}
       <Header />
+      <div className="menuMain">
+        <Menu />
+      </div>
       <div className="user__info">
         {user && (
           <div>

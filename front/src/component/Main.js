@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { format } from "../utils/format";
 import Button from "./Button";
 import Header from "./Header";
+import Menu from "./Menu";
 
 const Main = () => {
   const [questions, setQuestions] = useState([]);
@@ -71,6 +72,9 @@ const Main = () => {
   return (
     <>
       <Header />
+      <div className="menuMain">
+        <Menu />
+      </div>
       <main className="main">
         <div className="allInfo">
           <div className="allInfoQuestion">

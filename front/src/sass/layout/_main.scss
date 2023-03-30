@@ -1,4 +1,25 @@
 .main {
     height: 90vh;
     position: relative;
+    //border-right: 3px solid $color-primary-grey-lighter;
+
+    @include respond(phone) {
+        float: left;
+        //width: 79%;
+        width: calc(100% - 12rem);
+        height: auto;
+        border-left: 3px solid $color-primary-grey-lighter;
+    }
+}
+
+.mainLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include heightMain;
+
+    @include respond(phone) {
+        @include widhtMain
+    }
+
 }

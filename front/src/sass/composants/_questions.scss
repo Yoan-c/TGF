@@ -1,5 +1,12 @@
 .allQuestions {
     padding: 1rem 0;
+    @include bgColorGeneral;
+    height: calc(100vh - 12vh - 48vh);
+    overflow-y: scroll;
+
+    @include respond(tab-port) {
+        height: calc(100vh - 12vh - 20vh);
+    }
 }
 
 .questionGroup {
@@ -13,8 +20,13 @@
     position: relative;
     font-weight: bold;
 
+    @include respond(tab-port) {
+        height: 116px;
+    }
+
     &__info p {
         display: inline-block;
+
     }
 
     &__info p:not(:last-child) {
@@ -29,6 +41,12 @@
         color: $color-primary-blue-dark;
         font-size: 1.6rem;
         padding: 1rem;
+
+        @include respond(tab-port) {
+            font-size: 2.5rem;
+        }
+
+
     }
 
     &__updateQuestion {
@@ -47,14 +65,22 @@
         position: absolute;
         right: 10px;
         display: flex;
+
+        @include respond(tab-port) {
+            @include sizeFont;
+        }
     }
 
     &__user p:first-child {
         margin-right: 5px;
+
+
     }
 
     &__user p:last-child {
         color: $color-primary-grey-darker;
+
+
     }
 }
 
@@ -62,6 +88,19 @@
     margin-bottom: 2rem;
 }
 
+.showOneQuestion {
+    float: left;
+    width: 100%;
+
+    @include respond(phone) {
+        @include widhtMain;
+        @include heightMain;
+    }
+
+    @include respond(tab-port) {
+        @include sizeFont;
+    }
+}
 
 .oneQuestion {
     display: flex;
@@ -77,6 +116,10 @@
         color: $color-primary-blue-dark;
         font-weight: bold;
         font-size: 1.6rem;
+
+        @include respond(tab-port) {
+            font-size: 2.5rem;
+        }
     }
 
     &__post p:last-child {
@@ -84,6 +127,12 @@
         font-weight: bold;
         font-size: 1.1rem;
         margin-top: 5px;
+
+        @include respond(tab-port) {
+            @include sizeFont;
+        }
+
+
     }
 
     &__ask {
@@ -122,15 +171,25 @@
 
 .rightPartQuestion {
 
+    flex-grow: 2;
+
 
     &__description {
         font-size: 1.6rem;
         margin-bottom: 2rem;
+
+        @include respond(tab-port) {
+            font-size: 2rem;
+        }
     }
 
     &__response {
         font-size: 1.2rem;
         margin-bottom: 2rem;
+
+        @include respond(tab-port) {
+            @include sizeFont;
+        }
 
         &__group {
             min-height: 4rem;
@@ -142,8 +201,6 @@
 
         &__info {
             margin-top: 5px;
-            position: absolute;
-            right: 2rem;
             color: $color-primary-blue;
         }
     }
@@ -153,19 +210,31 @@
     &__answer {
         background-color: $color-nav-grey;
         padding: 1rem;
-        min-height: 288px;
-        min-width: 304px;
+        min-height: 227px;
+
+        @include respond(tab-port) {
+            min-height: 309px;
+        }
 
     }
 
     &__answer p:first-child {
         font-size: 1.2rem;
         margin-bottom: 1rem;
+
+        @include respond(tab-port) {
+            font-size: 1.6rem;
+        }
     }
 
     &__answer textarea {
         padding: 1rem;
         display: block;
+        width: 100%;
+
+        @include respond(tab-port) {
+            font-size: 1.8rem;
+        }
     }
 
     &__answer button {

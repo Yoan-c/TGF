@@ -78,8 +78,7 @@ const Header = () => {
               value="Rechercher"
               bgColor="blue"
               height="28"
-              width="60"
-              fontSize="1"
+              width="96"
             />
           </div>
         </div>

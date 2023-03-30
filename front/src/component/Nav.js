@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import { findUrl } from "../utils/findUrl";
+import Menu from "./Menu";
 
 const Nav = () => {
   const [user, setUser] = useState("");
@@ -27,6 +26,8 @@ const Nav = () => {
         id="showMenu"
         name="showMenu"
       />
+      <Menu />
+      {/*
       <div className="menu">
         <div className="menu__public">
           <p>Public</p>
@@ -76,6 +77,7 @@ const Nav = () => {
           )}
         </div>
       </div>
+      */}
     </nav>
   );
 };
