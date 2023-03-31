@@ -69,6 +69,20 @@
         @include sizeFont;
     }
 
+
+    &__public--orange,
+    &__public--orange:visited,
+    &__private--orange {
+        color: $color-primary-blue-dark;
+        border-bottom: 1px solid;
+        font-weight: bold;
+    }
+
+    &__public--orange:hover,
+    &__private--orange:hover {
+        color: white;
+    }
+
     &__public p,
     &__private p {
         color: $color-primary-blue-dark;
@@ -80,8 +94,8 @@
         }
     }
 
-    &__public ul,
-    &__private ul {
+    &__public ul li a,
+    &__private ul li a {
         list-style: none;
         position: relative;
         margin-top: 1.5rem;
@@ -89,11 +103,33 @@
         left: 12px;
     }
 
+
+    &__public ul,
+    &__private ul {
+        list-style: none;
+        margin-top: 1.5rem;
+        margin-bottom: 1.8rem;
+    }
+
     &__public ul li:not(:last-child),
     &__private ul li:not(:last-child) {
 
         margin-bottom: 1.4rem;
     }
+
+    &__public ul li {
+        transition: all 0.5s;
+    }
+
+    &__public ul li:hover,
+    &__private ul li:hover,
+    &__public ul li:focus,
+    &__private ul li:focus {
+        background-color: $color-primary-orange;
+    }
+
+
+
 }
 
 .checkbox__menu {

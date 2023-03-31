@@ -34,11 +34,74 @@
 
     }
 
+
+
+
+    &__wordGroup {
+        display: inline-block;
+        width: 100px;
+        position: relative;
+        top: -82px;
+    }
+
+    .nextWord {
+        position: absolute;
+        left: 10px;
+
+        // animation: 3s example;
+        &--0 {
+            top: 0;
+        }
+
+        &--1 {
+            top: 25px;
+        }
+
+        &--2 {
+            top: 50px;
+        }
+    }
+
+    .animeSpan {
+        position: relative;
+        animation: 7s example alternate infinite;
+        // pour cette insctruction il faut changer l'avant dernier 100% en 75% 
+        //animation: 7s example  infinite;
+    }
+
+    @keyframes example {
+        0% {
+            top: 20px;
+        }
+
+        25% {
+            top: 32px;
+        }
+
+        50% {
+            top: 55px;
+        }
+
+        100% {
+            top: 83px;
+        }
+
+        /*
+        100% {
+            top: 100px;
+        }
+*/
+    }
+
+
+
     &__intro {
         color: white;
         font-size: 1.4rem;
         font-weight: 600;
         width: 80%;
+        display: flex;
+        overflow: hidden;
 
         &--orange {
             color: $color-primary-orange;

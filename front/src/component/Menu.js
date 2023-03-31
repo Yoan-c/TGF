@@ -25,7 +25,7 @@ const Menu = () => {
         <ul>
           {findUrl(window.location.href) === "forum" ? (
             <li>
-              <Link to="/forum" style={{ color: "#ff9839" }}>
+              <Link to="/forum" className="menu__public--orange">
                 Question
               </Link>
             </li>
@@ -36,7 +36,7 @@ const Menu = () => {
           )}
           {findUrl(window.location.href) === "user" ? (
             <li>
-              <Link to="/user" style={{ color: "#ff9839" }}>
+              <Link to="/user" className="menu__public--orange">
                 Utilisateur
               </Link>
             </li>
@@ -54,7 +54,7 @@ const Menu = () => {
             <ul>
               {findUrl(window.location.href) === "account" ? (
                 <li>
-                  <Link to="/account" style={{ color: "#ff9839" }}>
+                  <Link to="/account" className="menu__private--orange">
                     Compte
                   </Link>
                 </li>

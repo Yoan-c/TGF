@@ -25,9 +25,16 @@ const Home = () => {
             onClick={() => navigate("/forum")}
           />
         </div>
+
         <div className="homeMain__intro">
-          Tous les{" "}
-          <span className="homeMain__intro--orange">developpeurs </span>
+          Tous les
+          <span className="homeMain__wordGroup homeMain__intro--orange">
+            <div className="animeSpan">
+              <p className="nextWord nextWord--0"> Developpeurs </p>
+              <p className="nextWord nextWord--1"> Graphistes </p>
+              <p className="nextWord nextWord--2"> Designers </p>
+            </div>
+          </span>
           ont un onglet de LOGO d’ouvert
         </div>
       </main>

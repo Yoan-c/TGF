@@ -29,7 +29,6 @@ body {
 a {
   text-decoration: none; }
 
-a,
 a:visited {
   color: black; }
 
@@ -142,7 +141,9 @@ a:visited {
   font-size: 1.2rem;
   color: white;
   font-weight: 200;
-  min-width: 5rem; }
+  min-width: 5rem;
+  cursor: pointer;
+  transition: all .2s; }
   @media (min-width: 56.25em) {
     .button {
       font-size: 1.6rem; } }
@@ -152,6 +153,8 @@ a:visited {
     background-color: rgba(0, 101, 157, 0.6); }
   .button--orange {
     background-color: #ff9839; }
+  .button:hover {
+    transform: scale(1.1); }
 
 .form {
   font-size: 1.4rem;
@@ -177,8 +180,7 @@ a:visited {
       padding: 1rem; }
     .form__group button {
       position: absolute;
-      left: 50%;
-      transform: translateX(-50%); }
+      left: 50%; }
   .form__error {
     font-size: 1.1rem;
     color: red; }
@@ -245,6 +247,12 @@ a:visited {
   @media (min-width: 56.25em) {
     .menu {
       font-size: 1.6rem; } }
+  .menu__public--orange, .menu__public--orange:visited, .menu__private--orange {
+    color: rgba(0, 101, 157, 0.87);
+    border-bottom: 1px solid;
+    font-weight: bold; }
+  .menu__public--orange:hover, .menu__private--orange:hover {
+    color: white; }
   .menu__public p,
   .menu__private p {
     color: rgba(0, 101, 157, 0.87);
@@ -254,16 +262,28 @@ a:visited {
       .menu__public p,
       .menu__private p {
         font-size: 1.6rem; } }
-  .menu__public ul,
-  .menu__private ul {
+  .menu__public ul li a,
+  .menu__private ul li a {
     list-style: none;
     position: relative;
     margin-top: 1.5rem;
     margin-bottom: 1.8rem;
     left: 12px; }
+  .menu__public ul,
+  .menu__private ul {
+    list-style: none;
+    margin-top: 1.5rem;
+    margin-bottom: 1.8rem; }
   .menu__public ul li:not(:last-child),
   .menu__private ul li:not(:last-child) {
     margin-bottom: 1.4rem; }
+  .menu__public ul li {
+    transition: all 0.5s; }
+  .menu__public ul li:hover,
+  .menu__private ul li:hover,
+  .menu__public ul li:focus,
+  .menu__private ul li:focus {
+    background-color: #ff9839; }
 
 .checkbox__menu {
   display: none; }
@@ -704,11 +724,45 @@ a:visited {
       background-color: #fEE3CD; }
     .homeMain__card--blue {
       background-color: #CDE9FE; }
+  .homeMain__wordGroup {
+    display: inline-block;
+    width: 100px;
+    position: relative;
+    top: -82px; }
+  .homeMain .nextWord {
+    position: absolute;
+    left: 10px; }
+    .homeMain .nextWord--0 {
+      top: 0; }
+    .homeMain .nextWord--1 {
+      top: 25px; }
+    .homeMain .nextWord--2 {
+      top: 50px; }
+  .homeMain .animeSpan {
+    position: relative;
+    animation: 7s example alternate infinite; }
+
+@keyframes example {
+  0% {
+    top: 20px; }
+  25% {
+    top: 32px; }
+  50% {
+    top: 55px; }
+  100% {
+    top: 83px; }
+  /*
+        100% {
+            top: 100px;
+        }
+*/ }
   .homeMain__intro {
     color: white;
     font-size: 1.4rem;
     font-weight: 600;
-    width: 80%; }
+    width: 80%;
+    display: flex;
+    overflow: hidden; }
     .homeMain__intro--orange {
       color: #ff9839; }
 
