@@ -16,14 +16,14 @@ const Home = () => {
             value={lang.main.home.joinCommunity}
             cardColor="orange"
             btnColor="orange"
-            btnText="Login"
+            btnText={lang.main.home.btnLogin}
             onClick={() => navigate("/login")}
           />
           <CardNav
             value={lang.main.home.joinForum}
             cardColor="blue"
             btnColor="blue"
-            btnText="Join forum"
+            btnText={lang.main.home.btnJoinForum}
             onClick={() => navigate("/forum")}
           />
         </div>
