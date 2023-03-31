@@ -11,7 +11,7 @@
     transition: all .2s;
 
     @include respond(tab-port) {
-        @include sizeFont;
+        font-size: 1.4rem;
     }
 
     &--blue {

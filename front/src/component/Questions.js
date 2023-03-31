@@ -5,6 +5,7 @@ import Button from "./Button";
 import { format } from "../utils/format";
 import Header from "./Header";
 import Menu from "./Menu";
+import { useSelector } from "react-redux";
 
 const Questions = (props) => {
   const { id } = useParams();
@@ -13,6 +14,7 @@ const Questions = (props) => {
   const [oneComment, setOneComment] = useState("");
   const [user, setUser] = useState(null);
   const [error, setError] = useState("");
+  const lang = useSelector((state) => state.lang);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -52,14 +54,14 @@ const Questions = (props) => {
   };
   const postComment = user ? (
     <>
-      <p>Votre réponse : </p>
+      <p>{lang.main.question.answerLabel}</p>
       <textarea
         name="answer"
         id="answer"
         cols="34"
         rows="8"
         style={{ resize: "none" }}
-        placeholder="Entrez votre réponse"
+        placeholder={lang.main.question.asnwerPlaceholder}
         onChange={(e) => {
           setOneComment(e.target.value);
         }}
@@ -69,11 +71,11 @@ const Questions = (props) => {
         onClick={() => handleSubmit()}
         style={{ height: "50px", width: "100px" }}
       >
-        Répondre
+        {lang.main.question.btnAsnwer}
       </button>
     </>
   ) : (
-    <p style={{ textAlign: "center" }}>Veuillez vous connecter pour répondre</p>
+    <p style={{ textAlign: "center" }}>{lang.main.forum.connectMsg}</p>
   );
 
   const askQuestion = () => {
@@ -91,14 +93,17 @@ const Questions = (props) => {
           <div className="oneQuestion__post">
             <p>{questions.question}</p>
             <p>
-              posté il y a {format(questions.creationQuestion)}, modifier il y a{" "}
-              {format(questions.updateQuestion)}
+              {lang.main.forum.datePostFirst}{" "}
+              {format(questions.creationQuestion, lang.category)}{" "}
+              {lang.main.forum.datePostEnd}, {lang.main.forum.dateModify}{" "}
+              {format(questions.updateQuestion, lang.category)}{" "}
+              {lang.main.forum.datePostEnd}
             </p>
           </div>
           <div className="oneQuestion__ask">
             <Button
               onClick={askQuestion}
-              value="Poser une question"
+              value={lang.main.forum.btnAskQuestion}
               height="30"
               width="130"
             />
@@ -126,8 +131,9 @@ const Questions = (props) => {
                       >
                         <p>{data.comments}</p>
                         <p className="rightPartQuestion__response__info">
-                          {data.user.username} posté il y a{" "}
-                          {format(data.creationComments)}{" "}
+                          {data.user.username} {lang.main.forum.datePostFirst}{" "}
+                          {format(data.creationComments, lang.category)}{" "}
+                          {lang.main.forum.datePostEnd}
                         </p>
                       </div>
                     );
@@ -135,32 +141,7 @@ const Questions = (props) => {
                 : "Loading..."}
             </div>
 
-            <div className="rightPartQuestion__answer">
-              {
-                postComment
-                /*
-            <p>Votre réponse : </p>
-            <textarea
-              name="answer"
-              id="answer"
-              cols="34"
-              rows="8"
-              style={{ resize: "none" }}
-              placeholder="Entrez votre réponse"
-              onChange={(e) => {
-                setOneComment(e.target.value);
-              }}
-            ></textarea>
-            <button
-              className="button button--blue mt-big mb-big"
-              onClick={() => handleSubmit()}
-              style={{ height: "50px", width: "100px" }}
-            >
-              Répondre
-            </button>
-            */
-              }
-            </div>
+            <div className="rightPartQuestion__answer">{postComment}</div>
           </div>
         </div>
       </div>

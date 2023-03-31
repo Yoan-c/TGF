@@ -146,7 +146,7 @@ a:visited {
   transition: all .2s; }
   @media (min-width: 56.25em) {
     .button {
-      font-size: 1.6rem; } }
+      font-size: 1.4rem; } }
   .button--blue {
     background-color: #2093D4; }
   .button--blueLight {
@@ -247,6 +247,15 @@ a:visited {
   @media (min-width: 56.25em) {
     .menu {
       font-size: 1.6rem; } }
+  .menu__frFlag, .menu__enFlag {
+    width: 18px; }
+    @media (min-width: 39em) {
+      .menu__frFlag, .menu__enFlag {
+        width: 24px; } }
+  .menu__frParagraph, .menu__enParagraph {
+    display: inline-block;
+    width: 21px;
+    margin-left: 3px; }
   .menu__public--orange, .menu__public--orange:visited, .menu__private--orange {
     color: rgba(0, 101, 157, 0.87);
     border-bottom: 1px solid;
@@ -296,7 +305,6 @@ a:visited {
 .search__group {
   position: absolute;
   z-index: 20;
-  width: 29.2rem;
   height: 6.2rem;
   left: 2.9rem;
   top: -5rem;
@@ -307,9 +315,7 @@ a:visited {
     .search__group {
       opacity: 1;
       position: initial;
-      width: 80%; } }
-  @media (min-width: 39em) {
-    .search__group {
+      width: 80%;
       max-width: 50rem;
       margin: 0 auto; } }
   .search__group__detail {
@@ -328,10 +334,14 @@ a:visited {
       padding: 0.5rem;
       margin: .5rem;
       height: 26px;
-      width: 80%; }
+      width: 54%; }
+      @media (min-width: 39em) {
+        .search__group__detail input {
+          width: 80%; } }
     .search__group__detail button {
       position: relative;
-      top: -1px; }
+      top: -1px;
+      width: 100px; }
 
 .checkbox__search {
   display: none; }
@@ -339,7 +349,8 @@ a:visited {
 .checkbox__search:checked + .search__group {
   opacity: 1;
   top: 6.7rem;
-  transition: all .5s; }
+  transition: all .5s;
+  min-width: 69%; }
 
 .menuMain {
   float: left; }
@@ -660,7 +671,7 @@ a:visited {
   @media (min-width: 39em) {
     .header {
       display: grid;
-      grid-template-columns: [logo] 100px [search] 1fr [btn1] 70px [btn2] 70px;
+      grid-template-columns: [logo] 100px [search] 1fr [btn1] 100px [btn2] 106px;
       padding: 0 1rem;
       height: 12vh; } }
   @media (min-width: 56.25em) {

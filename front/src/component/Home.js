@@ -2,23 +2,25 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import CardNav from "./CardNav";
 import Header from "./Header";
+import { useSelector } from "react-redux";
 
 const Home = () => {
   const navigate = useNavigate();
+  const lang = useSelector((state) => state.lang);
   return (
     <>
       <Header />
       <main className="homeMain">
         <div className="homeMain__choice">
           <CardNav
-            value="Join the community"
+            value={lang.main.home.joinCommunity}
             cardColor="orange"
             btnColor="orange"
             btnText="Login"
             onClick={() => navigate("/login")}
           />
           <CardNav
-            value="Join the forum"
+            value={lang.main.home.joinForum}
             cardColor="blue"
             btnColor="blue"
             btnText="Join forum"
@@ -27,15 +29,19 @@ const Home = () => {
         </div>
 
         <div className="homeMain__intro">
-          Tous les
+          {lang.main.home.sentenceStart}
           <span className="homeMain__wordGroup homeMain__intro--orange">
             <div className="animeSpan">
-              <p className="nextWord nextWord--0"> Developpeurs </p>
-              <p className="nextWord nextWord--1"> Graphistes </p>
-              <p className="nextWord nextWord--2"> Designers </p>
+              {lang.main.home.sentenceOption.map((word, index) => {
+                return (
+                  <p key={index} className={`nextWord nextWord--${index}`}>
+                    {word}
+                  </p>
+                );
+              })}
             </div>
           </span>
-          ont un onglet de LOGO d’ouvert
+          {lang.main.home.sentenceEnd}
         </div>
       </main>
     </>

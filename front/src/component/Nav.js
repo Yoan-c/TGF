@@ -27,57 +27,6 @@ const Nav = () => {
         name="showMenu"
       />
       <Menu />
-      {/*
-      <div className="menu">
-        <div className="menu__public">
-          <p>Public</p>
-          <ul>
-            {findUrl(window.location.href) === "forum" ? (
-              <li>
-                <Link to="/forum" style={{ color: "#ff9839" }}>
-                  Question
-                </Link>
-              </li>
-            ) : (
-              <li>
-                <Link to="/forum">Question</Link>
-              </li>
-            )}
-            {findUrl(window.location.href) === "user" ? (
-              <li>
-                <Link to="/user" style={{ color: "#ff9839" }}>
-                  Utilisateur
-                </Link>
-              </li>
-            ) : (
-              <li>
-                <Link to="/user">Utilisateur</Link>
-              </li>
-            )}
-          </ul>
-        </div>
-        <div className="menu__private">
-          {user && (
-            <>
-              <p> Privée</p>
-              <ul>
-                {findUrl(window.location.href) === "account" ? (
-                  <li>
-                    <Link to="/account" style={{ color: "#ff9839" }}>
-                      Compte
-                    </Link>
-                  </li>
-                ) : (
-                  <li>
-                    <Link to="/account">Compte</Link>
-                  </li>
-                )}
-              </ul>
-            </>
-          )}
-        </div>
-      </div>
-      */}
     </nav>
   );
 };

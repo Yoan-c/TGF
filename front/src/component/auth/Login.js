@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useSelector } from "react-redux";
 import Button from "../Button";
 import Header from "../Header";
 import Menu from "../Menu";
@@ -10,6 +11,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const lang = useSelector((state) => state.lang);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -65,7 +67,7 @@ const Login = () => {
             <p className="form__error__text">{error}</p>
           </div>
           <div className="form__group">
-            <label htmlFor="email">Email :</label>
+            <label htmlFor="email">{lang.main.form.email}</label>
             <input
               type="email"
               id="email"
@@ -74,7 +76,7 @@ const Login = () => {
             />
           </div>
           <div className="form__group">
-            <label htmlFor="password">Password :</label>
+            <label htmlFor="password">{lang.main.form.password}</label>
             <input
               type="password"
               id="password"
@@ -84,7 +86,7 @@ const Login = () => {
           </div>
           <div className="form__group">
             <Button
-              value="Login"
+              value={lang.main.form.btnLogin}
               bgColor="blue"
               height="45"
               width="100"

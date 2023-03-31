@@ -5,6 +5,7 @@ import { format } from "../utils/format";
 import Button from "./Button";
 import Header from "./Header";
 import Menu from "./Menu";
+import { useSelector } from "react-redux";
 
 const Main = () => {
   const [questions, setQuestions] = useState([]);
@@ -12,6 +13,7 @@ const Main = () => {
   const [sort, setSort] = useState(true);
   const [orderBy, setOrderBy] = useState("creationQuestion");
   const [asc, setAsc] = useState(false);
+  const lang = useSelector((state) => state.lang);
   const navigate = useNavigate();
 
   const formatUrl = (value) => {
@@ -78,9 +80,12 @@ const Main = () => {
       <main className="main">
         <div className="allInfo">
           <div className="allInfoQuestion">
-            <p className="allInfoQuestion__text">Toutes les questions</p>
+            <p className="allInfoQuestion__text">{lang.main.forum.questions}</p>
             <p className="allInfoQuestion__nb">
-              {sizeQuestions} {sizeQuestions > 1 ? "questions" : "question"}
+              {sizeQuestions}{" "}
+              {sizeQuestions > 1
+                ? `${lang.main.forum.nbQuestions}s`
+                : lang.main.forum.nbQuestions}
             </p>
           </div>
           <div className="allInfo__filterBtn">
@@ -89,20 +94,19 @@ const Main = () => {
                 htmlFor="showFilter"
                 className="button button--blueLight"
                 style={{
-                  height: "50px",
                   minWidth: "90px",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                 }}
               >
-                Filter
+                {lang.main.forum.btnFilter}
               </label>
             </div>
             <div>
               <Button
                 onClick={() => navigate("/askQuestion")}
-                value="Poser une question"
+                value={lang.main.forum.btnAskQuestion}
                 height="50"
                 width="150"
               />
@@ -116,7 +120,7 @@ const Main = () => {
           />
           <div className="filterInfo">
             <div className="filterInfo__filter">
-              <p>Filtrer par : </p>
+              <p>{lang.main.forum.filterBy}</p>
               <ul className="filterInfo__list">
                 <li>
                   <input
@@ -127,7 +131,9 @@ const Main = () => {
                     defaultChecked
                     onChange={(e) => formatUrl(e.target.value)}
                   />
-                  <label htmlFor="response">Réponse</label>
+                  <label htmlFor="response">
+                    {lang.main.forum.filterByAnswer}
+                  </label>
                 </li>
                 <li>
                   <input
@@ -137,12 +143,14 @@ const Main = () => {
                     value="noAnswer"
                     onChange={(e) => formatUrl(e.target.value)}
                   />
-                  <label htmlFor="noResponse">Aucune Réponse</label>
+                  <label htmlFor="noResponse">
+                    {lang.main.forum.filterByNoAnswer}
+                  </label>
                 </li>
               </ul>
             </div>
             <div className="filterInfo__order">
-              <p>Trier par : </p>
+              <p>{lang.main.forum.orderBy}</p>
               <ul>
                 <li>
                   {" "}
@@ -154,10 +162,9 @@ const Main = () => {
                     defaultChecked
                     onChange={(e) => formatUrl(e.target.value)}
                   />
-                  <label htmlFor="recent">Plus récent</label>
+                  <label htmlFor="recent">{lang.main.forum.orderByNewer}</label>
                 </li>
                 <li>
-                  {" "}
                   <input
                     type="radio"
                     id="older"
@@ -165,7 +172,7 @@ const Main = () => {
                     value="older"
                     onChange={(e) => formatUrl(e.target.value)}
                   />
-                  <label htmlFor="older">Plus ancien</label>
+                  <label htmlFor="older">{lang.main.forum.orderByOlder}</label>
                 </li>
                 <li>
                   {" "}
@@ -176,7 +183,9 @@ const Main = () => {
                     value="nbAnswer"
                     onChange={(e) => formatUrl(e.target.value)}
                   />
-                  <label htmlFor="nbAnswer">Nombre de réponse</label>
+                  <label htmlFor="nbAnswer">
+                    {lang.main.forum.orderByNbAnswer}
+                  </label>
                 </li>
               </ul>
             </div>
@@ -195,7 +204,9 @@ const Main = () => {
                       <p>0 votes</p>
                       <p>
                         {data.comments.length}
-                        {data.comments.length > 1 ? " réponse" : " réponses"}
+                        {data.comments.length > 1
+                          ? ` ${lang.main.forum.nbAnswer}s`
+                          : ` ${lang.main.forum.nbAnswer}`}
                       </p>
                     </div>
                     <div className="questionGroup__question">
@@ -203,11 +214,18 @@ const Main = () => {
                     </div>
                     <div className="questionGroup__user">
                       <p> {data.user.username} </p>
-                      <p> posté il y a {format(data.creationQuestion)} </p>
+                      <p>
+                        {`${lang.main.forum.datePostFirst} `}
+                        {format(data.creationQuestion, lang.category)}{" "}
+                        {` ${lang.main.forum.datePostEnd}`}
+                      </p>
                     </div>
                     <div className="questionGroup__updateQuestion">
-                      <p> MAJ : </p>
-                      <p> &nbsp; {format(data.updateQuestion)} </p>
+                      <p> {lang.main.forum.dateUpdate}</p>
+                      <p>
+                        {" "}
+                        &nbsp; {format(data.updateQuestion, lang.category)}{" "}
+                      </p>
                     </div>
                   </div>
                 );

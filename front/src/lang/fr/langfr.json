@@ -1,0 +1,85 @@
+{
+    "category" : "FR",
+    "header" : {
+        "search" : "Rechercher",
+        "btnLogin" : "Se connecter",
+        "btnSignup" : "S'inscrire",
+        "btnLogout" : "Se déconnecter",
+        "btnForum" : "Forum",
+        "logo" : "ReadIt"
+    },
+    "main" : {
+        "menu" : {
+            "public" : {
+                "categorie" : "Public",
+                "questions" : "Questions",
+                "users" : "Utilisateurs"
+            },
+            "private" : {
+                "categorie" : "Privé",
+                "account" : "Compte"
+            }
+        },
+
+        "home" : {
+            "btnLogin" : "Se connecter",
+            "btnJoinForum" : "Rejoindre le forum",
+            "joinCommunity" : "Rejoindre la communauté",
+            "joinForum" : "Rejoindre le forum",
+            "sentenceStart" : "Tous les",
+            "sentenceOption" : ["Développeurs", "Graphistes", "Désigners"],
+            "sentenceEnd" : "ont un onglet de ReadIt d'ouvert"
+
+        },
+        "form" : {
+            "pseudo" : "Pseudo",
+            "email" : "Email",
+            "password" : "Mot de passe",
+            "confirmPassword" : "Confirmation mot de passe",
+            "btnLogin" : "Se connecter",
+            "btnSignup" : "S'inscrire"
+        },
+
+        "forum" : {
+            "questions" : "Toute les questions",
+            "nbQuestions" : "question",
+            "btnAskQuestion" : "Poser une question",
+            "btnFilter" : "Filtrer",
+            "filterBy" : "Filtrer par :",
+            "filterByAnswer" : "Réponse",
+            "filterByNoAnswer" : "Aucune Réponse",
+            "orderBy" : "Trier par :",
+            "orderByOlder" : "Plus ancien",
+            "orderByNewer" : "Plus récent",
+            "orderByNbAnswer" : "Nombre de réponse",
+            "nbVote" : "vote",
+            "nbAnswer" : "réponse",
+            "dateUpdate" : "mis à jour :",
+            "dateModify" : "modifié il y a",
+            "datePostFirst" : "posté il y a",
+            "datePostEnd" : "",
+            "btnAnswer" : "Répondre",
+            "connectMsg" : "Veuillez vous connecter pour répondre"
+        },
+        "account" : {
+            "accountLabel" : "Compte",
+            "emailLabel" : "Email",
+            "pseudoLabel" : "Pseudo",
+            "imageLabel" : "Image",
+            "imageChangeLabel" : "Changer d'image",
+            "imageChangeOptLabel" : "Choisir une fichier",
+            "imageChangeChoiceLabel" : "Aucun fichier choisi",
+            "btnSubmit" : "Modifier"
+        },
+        "question" : {
+            "postQuestionLabel" : "Poser une question",
+            "postTitleLabel" : "Titre",
+            "questionLabel" : "Question",
+            "postDecribeLabel" : "Décrivez votre problème",
+            "btnPost" : "Poster",
+            "answerLabel" : "Votre réponse : ",
+            "asnwerPlaceholder" : "Entrez votre réponse",
+            "btnAsnwer" : "Répondre"
+        }
+    }
+}

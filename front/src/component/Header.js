@@ -3,11 +3,13 @@ import axios from "axios";
 import Button from "./Button";
 import Nav from "./Nav";
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import searchImg from "../search_icon.png";
 
 const Header = () => {
   const [user, setUser] = useState(null);
   const [searchQ, setSearchQ] = useState("");
+  const lang = useSelector((state) => state.lang);
   const navigate = useNavigate();
   useEffect(() => {
     let url = `${process.env.REACT_APP_URL}/user/me`;
@@ -28,23 +30,38 @@ const Header = () => {
       <Link to="/forum">
         <Button
           onClick={() => localStorage.removeItem("search")}
-          value="forum"
+          value={lang.header.btnForum}
           bgColor="blue"
           height="30"
           width="60"
         />
       </Link>
       <Link to="/logout">
-        <Button value="logout" bgColor="blue" height="30" width="60" />
+        <Button
+          value={lang.header.btnLogout}
+          bgColor="blue"
+          height="30"
+          width="60"
+        />
       </Link>
     </>
   ) : (
     <>
       <Link to="/login">
-        <Button value="login" bgColor="blue" height="30" width="60" />
+        <Button
+          value={lang.header.btnLogin}
+          bgColor="blue"
+          height="30"
+          width="60"
+        />
       </Link>
       <Link to="/signup">
-        <Button value="signup" bgColor="blue" height="30" width="60" />
+        <Button
+          value={lang.header.btnSignup}
+          bgColor="blue"
+          height="30"
+          width="60"
+        />
       </Link>
     </>
   );
@@ -58,7 +75,7 @@ const Header = () => {
     <header className="header">
       <Nav />
       <Link to="/">
-        <h1 className="header__logo">LOGO</h1>
+        <h1 className="header__logo">{lang.header.logo}</h1>
       </Link>
       <div className="header__search">
         <label htmlFor="search">
@@ -75,7 +92,7 @@ const Header = () => {
             <input type="text" onChange={(e) => setSearchQ(e.target.value)} />
             <Button
               onClick={() => handleSubmit()}
-              value="Rechercher"
+              value={lang.header.search}
               bgColor="blue"
               height="28"
               width="96"

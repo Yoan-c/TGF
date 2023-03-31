@@ -3,9 +3,11 @@ import axios from "axios";
 import Header from "../Header";
 import { formatLocal } from "../../utils/format";
 import Menu from "../Menu";
+import { useSelector } from "react-redux";
 
 const AllUser = () => {
   const [users, setUsers] = useState(null);
+  const lang = useSelector((state) => state.lang);
   useEffect(() => {
     let url = `${process.env.REACT_APP_URL}/user/all`;
     axios

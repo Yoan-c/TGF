@@ -5,10 +5,12 @@ import { ToastContainer, toast, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Header from "./Header";
 import Menu from "./Menu";
+import { useSelector } from "react-redux";
 
 const AskQuestion = () => {
   const [title, setTitle] = useState(null);
   const [description, setDescription] = useState(null);
+  const lang = useSelector((state) => state.lang);
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -84,20 +86,22 @@ const AskQuestion = () => {
       </div>
       <div className="postQuestion">
         <ToastContainer />
-        <div className="postQuestion__showText">Poser une question</div>
+        <div className="postQuestion__showText">
+          {lang.main.question.postQuestionLabel}
+        </div>
         <div className="postQuestion__contain">
           <div className="postQuestion__info">
-            <p>Titre</p>
+            <p>{lang.main.question.postTitleLabel}</p>
             <input type="text" onChange={(e) => setTitle(e.target.value)} />
           </div>
           <div className="postQuestion__description">
-            <p>Question</p>
+            <p>{lang.main.question.questionLabel}</p>
             <textarea
               name=""
               id=""
               cols="30"
               rows="10"
-              placeholder="Décrivez votre probleme"
+              placeholder={lang.main.question.postDecribeLabel}
               onChange={(e) => setDescription(e.target.value)}
             ></textarea>
             <button
@@ -105,7 +109,7 @@ const AskQuestion = () => {
               onClick={() => handleSubmit()}
               style={{ height: "33px", width: "80px", float: "right" }}
             >
-              Poster
+              {lang.main.question.btnPost}
             </button>
           </div>
         </div>

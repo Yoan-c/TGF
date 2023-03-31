@@ -14,21 +14,15 @@ const Button = (props) => {
   }
   const height = props.height ? props.height : 0;
   const width = props.width ? props.width : 0;
-  const font = props.fontSize ? props.fontSize : 1.6;
   let styleSize;
   if (height > 0 && width > 0)
     styleSize = {
       minHeight: `${height}px`,
       minWidth: `${width}px`,
-      fontSize: `${font}rem`,
-    };
-  else
-    styleSize = {
-      fontSize: `${font}rem`,
     };
 
   return (
-    <button className={styleBtn} style={styleSize} onClick={props.onClick}>
+    <button className={styleBtn} onClick={props.onClick}>
       {props.value}
     </button>
   );

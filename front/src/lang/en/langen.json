@@ -1,0 +1,85 @@
+{
+    "category" : "EN",
+    "header" : {
+        "search" : "Search",
+        "btnLogin" : "Login",
+        "btnSignup" : "Signup",
+        "btnLogout" : "Logout",
+        "btnForum" : "Forum",
+        "logo" : "ReadIt"
+    },
+    "main" : {
+        "menu" : {
+            "public" : {
+                "categorie" : "Public",
+                "questions" : "All questions",
+                "users" : "All users"
+            },
+            "private" : {
+                "categorie" : "Private",
+                "account" : "Account"
+            }
+        },
+
+        "home" : {
+            "btnLogin" : "Login",
+            "btnJoinForum" : "Join the forum",
+            "joinCommunity" : "Join the community",
+            "joinForum" : "Join the forum",
+            "sentenceStart" : "All",
+            "sentenceOption" : ["Developers", "Graphic designers", "Designers"],
+            "sentenceEnd" : "have a ReadIt tab open"
+
+        },
+        "form" : {
+            "pseudo" : "Pseudo",
+            "email" : "E-mail",
+            "password" : "Password",
+            "confirmPassword" : "Password confirmation",
+            "btnLogin" : "Login",
+            "btnSignup" : "Signup"
+        },
+
+        "forum" : {
+            "questions" : "All questions",
+            "nbQuestions" : "question",
+            "btnAskQuestion" : "Ask a question",
+            "btnFilter" : "Filter",
+            "filterBy" : "Filter by :",
+            "filterByAnswer" : "Answer",
+            "filterByNoAnswer" : "No answer",
+            "orderBy" : "sort by :",
+            "orderByOlder" : "Older",
+            "orderByNewer" : "More recent",
+            "orderByNbAnswer" : "Answer",
+            "nbVote" : "vote",
+            "nbAnswer" : "answer",
+            "dateUpdate" : "updated :",
+            "dateModify" : "edit",
+            "datePostFirst" : "post",
+            "datePostEnd" : "ago",
+            "btnAnswer" : "Answer" ,
+            "connectMsg" : "Please log in to reply"
+        },
+        "account" : {
+            "accountLabel" : "Account",
+            "emailLabel" : "E-mail",
+            "pseudoLabel" : "Pseudo",
+            "imageLabel" : "Picture",
+            "imageChangeLabel" : "Change picture",
+            "imageChangeOptLabel" : "Choose a file",
+            "imageChangeChoiceLabel" : "No file selected",
+            "btnSubmit" : "Edit"
+        },
+        "question" : {
+            "postQuestionLabel" : "Ask a question",
+            "postTitleLabel" : "Title",
+            "questionLabel" : "Question",
+            "postDecribeLabel" : "Describe your problem",
+            "btnPost" : "Post",
+            "answerLabel" : "Your answer : ",
+            "asnwerPlaceholder" : "Put your answer",
+            "btnAsnwer" : "Post"
+        }
+    }
+}

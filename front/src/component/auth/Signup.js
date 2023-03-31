@@ -3,6 +3,7 @@ import Button from "../Button";
 import Header from "../Header";
 import axios from "axios";
 import Menu from "../Menu";
+import { useSelector } from "react-redux";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
@@ -10,6 +11,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confPassword, setConfPassword] = useState("");
   const [error, setError] = useState("");
+  const lang = useSelector((state) => state.lang);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -71,7 +73,7 @@ const Signup = () => {
             <p className="form__error__text">{error}</p>
           </div>
           <div className="form__group">
-            <label htmlFor="username">Pseudo :</label>
+            <label htmlFor="username">{lang.main.form.pseudo}</label>
             <input
               type="text"
               id="username"
@@ -80,7 +82,7 @@ const Signup = () => {
             />
           </div>
           <div className="form__group">
-            <label htmlFor="email">Email :</label>
+            <label htmlFor="email">{lang.main.form.email}</label>
             <input
               type="email"
               id="email"
@@ -89,7 +91,7 @@ const Signup = () => {
             />
           </div>
           <div className="form__group">
-            <label htmlFor="password">Password :</label>
+            <label htmlFor="password">{lang.main.form.password}</label>
             <input
               type="password"
               id="password"
@@ -98,7 +100,9 @@ const Signup = () => {
             />
           </div>
           <div className="form__group">
-            <label htmlFor="confPassword">Confirm password :</label>
+            <label htmlFor="confPassword">
+              {lang.main.form.confirmPassword}
+            </label>
             <input
               type="password"
               id="confPassword"
@@ -108,7 +112,7 @@ const Signup = () => {
           </div>
           <div className="form__group">
             <Button
-              value="Signup"
+              value={lang.main.form.btnSignup}
               bgColor="blue"
               height="45"
               width="100"

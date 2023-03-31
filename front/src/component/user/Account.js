@@ -4,10 +4,12 @@ import Header from "../Header";
 import { formatLocal } from "../../utils/format";
 import Button from "../Button";
 import Menu from "../Menu";
+import { useSelector } from "react-redux";
 
 const Account = () => {
   const [user, setUser] = useState(null);
   const [updateImg, setUpdateImg] = useState(null);
+  const lang = useSelector((state) => state.lang);
 
   const fileSelectedHandler = (event) => {
     setUpdateImg(event.target.files[0]);
@@ -54,27 +56,29 @@ const Account = () => {
         {user && (
           <div>
             <div className="compte">
-              <p className="compte__label">Compte</p>
+              <p className="compte__label">{lang.main.account.accountLabel}</p>
               <p className="compte__data">{formatLocal(user.compteCreated)}</p>
             </div>
             <div className="email">
-              <p className="email__label">Compte</p>
+              <p className="email__label">{lang.main.account.emailLabel}</p>
               <p className="email__data">{user.email}</p>
             </div>
             <div className="pseudo">
-              <p className="pseudo__label">Pseudo</p>
+              <p className="pseudo__label">{lang.main.account.pseudoLabel}</p>
               <p className="pseudo__data" name="username">
                 {user.username}
               </p>
             </div>
             <div className="image">
-              <p className="image__label">Image</p>
+              <p className="image__label">{lang.main.account.imageLabel}</p>
               <p className="image__data">
                 <img className="userImg" src={`img/${user.photo}`} alt="" />
               </p>
             </div>
             <div className="imageUpdate">
-              <p className="imageUpdate__label">Changer d'image</p>
+              <p className="imageUpdate__label">
+                {lang.main.account.imageChangeLabel}
+              </p>
               <p className="imageUpdate__data">
                 <input type="file" onChange={fileSelectedHandler} />
               </p>
