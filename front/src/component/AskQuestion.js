@@ -29,7 +29,7 @@ const AskQuestion = () => {
   }, [navigate]);
   const handleSubmit = () => {
     if (!title || !description) {
-      toast.error("Entrez un titre et une description", {
+      toast.error(lang.toastify.error.msg, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -53,21 +53,17 @@ const AskQuestion = () => {
         { withCredentials: true }
       )
       .then(function (res) {
-        console.log(res);
-        toast.success(
-          "Question posé, vous aller etre rediriger sur le forum dans 5 secondes ",
-          {
-            position: "top-right",
-            autoClose: 4000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-            transition: Zoom,
-          }
-        );
+        toast.success(lang.toastify.success.msg, {
+          position: "top-right",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Zoom,
+        });
         setTimeout(() => {
           navigate("/forum");
         }, 5000);
@@ -75,7 +71,6 @@ const AskQuestion = () => {
       .catch(function (error) {
         console.log(error);
       });
-    console.log("envoi");
   };
 
   return (

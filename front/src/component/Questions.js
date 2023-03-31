@@ -22,7 +22,6 @@ const Questions = (props) => {
     axios
       .get(url, { withCredentials: true })
       .then(function (res) {
-        console.log(res);
         setQuestions(res.data.question);
         setComments(res.data.question.comments);
         setUser(res.data.user);
@@ -44,7 +43,6 @@ const Questions = (props) => {
         { withCredentials: true }
       )
       .then(function (res) {
-        console.log(res.data.comment);
         setComments([...comments, res.data.comment]);
       })
       .catch(function (error) {

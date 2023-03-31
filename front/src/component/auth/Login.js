@@ -43,7 +43,6 @@ const Login = () => {
         )
         .then(function (res) {
           // handle success
-          console.log(res);
           localStorage.setItem("TGFU", JSON.stringify(res.data.user));
 
           navigate(`/forum`);

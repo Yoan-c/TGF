@@ -37,7 +37,6 @@ const Signup = () => {
     if (valid) {
       console.log("Envoi formulaire signup avec axios");
     }
-    console.log(username);
     let url = `${process.env.REACT_APP_URL}/user/signup`;
     axios
       .post(
@@ -52,13 +51,10 @@ const Signup = () => {
       )
       .then(function (res) {
         // handle success
-        console.log(res);
       })
       .catch(function (error) {
         // handle error
         console.log(error);
-        console.log(error.response.data.message);
-        setError(error.response.data.message);
       });
   };
   return (

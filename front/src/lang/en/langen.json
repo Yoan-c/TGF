@@ -81,5 +81,13 @@
             "asnwerPlaceholder" : "Put your answer",
             "btnAsnwer" : "Post"
         }
+    },
+    "toastify" : {
+        "success" : {
+            "msg" : "Question asked, you will be redirected to the forum in 5 seconds"
+        },
+        "error" : {
+            "msg" : "Put a title and description"
+        }
     }
 }

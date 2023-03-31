@@ -81,5 +81,13 @@
             "asnwerPlaceholder" : "Entrez votre réponse",
             "btnAsnwer" : "Répondre"
         }
+    },
+    "toastify" : {
+        "success" : {
+            "msg" : "Question posé, vous aller etre rediriger sur le forum dans 5 secondes "
+        },
+        "error" : {
+            "msg" : "Entrez un titre et une description"
+        }
     }
 }
